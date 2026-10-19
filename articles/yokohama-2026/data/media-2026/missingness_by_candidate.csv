@@ -1,0 +1,85 @@
+﻿candidate_id,medium,metric,value,value_status,reason,required_source,interpretation
+harasawa,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+harasawa,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+fukuyama,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+yamanaka,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+nakatani,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+fujikawa,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+asaka,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,television,candidate_total_airtime_seconds,,NOT_OBSERVED,全文録画または有料放送モニタリングが未入手。番組放送枠は露出時間ではない,テレビ局の放送ログ・録画・放送モニタリング,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,television,campaign_period_appearance_count_complete,,NOT_OBSERVED,TVでた蔵は一部番組掲載であり網羅性を保証しない,全局横断放送データベース,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,radio,individual_radio_appearance_count,,NOT_OBSERVED,全局アーカイブを網羅的に確認できない,FMヨコハマ/J-WAVE/NHKラジオ等の放送記録,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,newspaper,unique_print_article_count,,NOT_OBSERVED,新聞DBの全記事・紙面版の閲覧権なし,新聞紙面・記事データベース検索,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,social,x_account_posts_total_campaign,,NOT_OBSERVED,API/アーカイブで統一条件の通期投稿を取得できない,SNSプラットフォームの期間指定ログ,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,social,x_follower_count_baseline_and_end,,NOT_OBSERVED,候補者全員の同一時点の保存済みスクリーンショットなし,同一時点のアカウント記録,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,social,x_impressions_unique_users,,NOT_OBSERVED,SNS内部の閲覧ログを取得できない,陣営が持つアナリティクス,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,youtube,all_candidate_video_views_campaign,,NOT_OBSERVED,全動画・全チャンネル・同一時点の完全クロールではない,動画ID完全一覧とYouTube API同時刻取得,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,street,total_personally_delivered_rallies,,NOT_OBSERVED,候補者全員の14日分の実施ログを確保できず、予定と実績が混在,陣営活動日誌・当日ライブ記録・独立現地記録,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,street,total_in_person_audience,,NOT_OBSERVED,現地実数調査や同一条件の観衆カウントなし,会場記録・同一方法の現地計測,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,advertising,campaign_spend_by_channel_yen,,NOT_OBSERVED,陣営別の法定収支報告・ネット広告データ未収集,選管・政治資金収支報告・広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止
+yamamoto,advertising,paid_impressions,,NOT_OBSERVED,広告配信管理画面・共通アーカイブなし,各社広告ライブラリー,欠測。0件・出演なし・実施なしとは解釈禁止

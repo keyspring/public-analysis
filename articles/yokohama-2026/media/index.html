@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>選挙戦メディア分析｜横浜市長選2026</title>
+<style>
+:root{--bg:#f5f7f9;--card:#ffffff;--ink:#17202e;--muted:#5b6b7b;--line:#dbe3e9;--teal:#167d83;--warn:#8a5a00;--warnbg:#fff6e6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141c;--card:#18202b;--ink:#e8edf4;--muted:#9aa6b6;--line:#2b3644;--teal:#4fc3c3;--warn:#f0c674;--warnbg:#2b2416}}
+:root[data-theme="dark"]{--bg:#0f141c;--card:#18202b;--ink:#e8edf4;--muted:#9aa6b6;--line:#2b3644;--teal:#4fc3c3;--warn:#f0c674;--warnbg:#2b2416}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.75 system-ui,"Noto Sans CJK JP","Yu Gothic",sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+header{padding:22px 0 10px}
+header a{color:var(--teal);font-weight:700;font-size:13px}
+h1{font-size:clamp(22px,4vw,30px);margin:8px 0 6px}
+.lead{color:var(--muted);margin:0 0 6px}
+.notice{background:var(--warnbg);color:var(--warn);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px;margin:12px 0 4px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0}
+h2{font-size:clamp(18px,2.6vw,22px);margin:0 0 8px}
+h3{font-size:16px;margin:16px 0 6px}
+.kicker{font-size:11px;letter-spacing:.12em;color:var(--teal);font-weight:800;margin:0}
+.note{font-size:13px;color:var(--muted);margin:8px 0}
+.warnbox{background:var(--warnbg);color:var(--warn);border-radius:10px;padding:10px 14px;font-size:13px;margin:10px 0}
+.bar{display:grid;grid-template-columns:110px minmax(0,1fr) 150px;gap:10px;align-items:center;margin:9px 0}
+.bar .lbl{font-weight:700;font-size:13px}
+.bar .track{background:#e9eff2;border-radius:6px;height:20px;overflow:hidden}
+.bar .fill{height:100%;background:var(--teal);border-radius:6px}
+.bar .val{font-variant-numeric:tabular-nums;font-size:13px;text-align:right}
+.bar .meta{grid-column:2 / 4;font-size:12px;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{border:1px solid var(--line);border-radius:12px;padding:12px}
+.ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0}
+select{font:inherit;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:720px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:rgba(127,127,127,.08);font-size:12px}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:11px;border-radius:6px;padding:1px 7px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.unk{color:var(--warn);font-weight:700}
+a{color:var(--teal)}
+.grid4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.bar{grid-template-columns:84px minmax(0,1fr) 92px}.bar .meta{grid-column:1 / 4}.pair,.grid4{grid-template-columns:1fr}section{padding:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<a href="../">← 横浜市長選2026 分析サイト</a>
+<h1>選挙戦のメディア・街頭活動の測定</h1>
+<p class="lead">調査期間：2026年10月2日〜10月18日（選挙戦は10月4日〜10月17日）。取得できた範囲だけを示す。欠測は0ではなく「未確認」と表示する。</p>
+<p class="notice">※ AIを活用した集計・可視化には間違いが含まれる可能性があります。公式資料でも数値をご確認ください。</p>
+</header>
+
+<section id="sec-a">
+<p class="kicker">A</p>
+<h2>tvk第一声動画の再生回数</h2>
+<h3>tvk第一声動画の再生回数（2026/10/5 03:55時点の第三者集計）</h3>
+<p class="warnbox">これは選挙期間の総SNS到達ではない。視聴者の実人数でもない。山本氏は10/4 18:19公開、他6人は10/4 22:00公開のため、観測までの経過時間が異なる。</p>
+<div id="chartA"></div>
+</section>
+
+<section id="sec-b">
+<p class="kicker">B</p>
+<h2>共通討論会の再生回数（2回）</h2>
+<p class="note">7候補が出演した同じ動画の、動画全体の閲覧数。候補別に7等分したり、7倍して候補別の数字にしたりしない。2回の観測は日付と時点が違うため、同時刻の比較ではない。</p>
+<div id="chartB"></div>
+</section>
+
+<section id="sec-c">
+<p class="kicker">C</p>
+<h2>掲載を確認した個別動画の例</h2>
+<p class="note">動画IDごとの観測として表示する。候補別の合算やランキングは作らない。取材対象や時点が違うため、比較の根拠にしない。</p>
+<div class="ctrl"><label for="filterC">候補</label><select id="filterC"></select></div>
+<div class="tablewrap"><table id="tableC"></table></div>
+</section>
+
+<section id="sec-d">
+<p class="kicker">D</p>
+<h2>街頭演説・個人演説会の検証台帳</h2>
+<p class="warnbox">予定は実施済みとみなさない。会場の定員は来場者数ではない。候補別の「全期間の演説回数」は作らない。同じ日時の食い違いは両方を実施として足さない。</p>
+<div class="ctrl"><label for="filterD1">候補</label><select id="filterD1"></select><label for="filterD2">状態</label><select id="filterD2"></select></div>
+<p class="note" id="countD"></p>
+<div class="tablewrap"><table id="tableD"></table></div>
+<h3>食い違いの記録</h3>
+<div id="conflicts"></div>
+</section>
+
+<section id="sec-e">
+<p class="kicker">E</p>
+<h2>期日前投票：2025年と2026年の比較</h2>
+<p class="note">期日前投票の速報人数と、投票者総数（確定）の比較。2025年は公式PDFで確認した値。2026年の速報人数は報道値で、公式PDFでは未照合。</p>
+<div id="chartE"></div>
+<div id="findingE" class="note"></div>
+<h3>2025年と2026年に再出馬した2候補の得票（因果は分からない）</h3>
+<div class="tablewrap"><table id="tableRe"></table></div>
+<p class="note">候補者構成や争点が違うため、この差からSNS・動画・街頭活動の効果は判断できない。</p>
+</section>
+
+<section id="sec-aux">
+<p class="kicker">F</p>
+<h2>テレビ・新聞・ラジオ・SNS・広告</h2>
+<h3>テレビ（放送番組の確認できた一覧）</h3>
+<p class="note">番組の放送枠は候補の露出時間ではない。候補別の出演秒数は未確認。</p>
+<div class="tablewrap"><table id="tableTV"></table></div>
+<h3>新聞・ウェブ記事（選定したサンプル）</h3>
+<p class="note">選定した記事の一覧であり、報道の総量ではない。7候補共通の14問アンケートは、候補7人分の回答を含むが、14本の独立した記事ではない。</p>
+<div class="tablewrap"><table id="tableNews"></table></div>
+<h3>取得できなかった数値</h3>
+<div class="grid4" id="missing"></div>
+</section>
+
+<section id="sec-src">
+<p class="kicker">SOURCES</p>
+<h2>出典台帳</h2>
+<p class="note">すべての出典の原典URL、発行者、時点、制限事項。</p>
+<div class="tablewrap"><table id="tableSrc"></table></div>
+</section>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const safeUrl = u => /^https:\/\/[^\s"'<>]+$/.test(u || '') ? esc(u) : '';
+const fmt = n => Number(n).toLocaleString('ja-JP');
+
+function parseCSV(text) {
+  text = text.replace(/^﻿/, '');
+  const rows = []; let row = [], f = '', q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ',') { row.push(f); f = ''; }
+    else if (c === '\n') { row.push(f); rows.push(row); row = []; f = ''; }
+    else if (c !== '\r') f += c;
+  }
+  if (f.length || row.length) { row.push(f); rows.push(row); }
+  const h = rows.shift();
+  return rows.filter(r => r.length > 1).map(r => Object.fromEntries(h.map((k, i) => [k, r[i] ?? ''])));
+}
+async function load(name) {
+  const r = await fetch('../data/media-2026/' + name, { cache: 'no-store' });
+  if (!r.ok) throw new Error(name + ' ' + r.status);
+  return parseCSV(await r.text());
+}
+
+const STATUS = {
+  scheduled: '予定（候補者公式）',
+  crowd_scheduled: '予定（有志の記録）',
+  crowd_reported_done: '実施報告（有志の記録）',
+  self_reported_done: '実施報告（本人）',
+  video_archived: '映像で確認'
+};
+
+function srcLinks(ids, S) {
+  return String(ids || '').split(';').filter(Boolean).map(id => {
+    const s = S[id];
+    const u = s ? safeUrl(s.url) : '';
+    return u ? `<a href="${u}" target="_blank" rel="noopener noreferrer">${esc(id)}</a>` : esc(id);
+  }).join(' ');
+}
+function opt(sel, values) {
+  sel.innerHTML = values.map(v => `<option value="${esc(v[0])}">${esc(v[1])}</option>`).join('');
+}
+
+async function main() {
+  const [src, cands, vid, street, tv, press, miss, conf, num] = await Promise.all([
+    load('source_ledger.csv'), load('candidates.csv'), load('video_observations.csv'),
+    load('street_event_samples.csv'), load('tv_program_mentions.csv'), load('press_story_samples.csv'),
+    load('missingness_by_candidate.csv'), load('source_conflicts.csv'), load('numeric_observations.csv')
+  ]);
+  const S = Object.fromEntries(src.map(x => [x.source_id, x]));
+  const N = Object.fromEntries(cands.map(c => [c.candidate_id, c.name]));
+  const order = cands.map(c => c.candidate_id);
+
+  // A: tvk first-speech videos
+  const tvk = vid.filter(v => v.video_id.startsWith('YT-TVK-'))
+    .sort((a, b) => order.indexOf(a.candidate_id) - order.indexOf(b.candidate_id));
+  const maxA = Math.max(...tvk.map(v => Number(v.views)));
+  $('#chartA').innerHTML = tvk.map(v => `
+    <div class="bar">
+      <div class="lbl">${esc(N[v.candidate_id])}</div>
+      <div class="track" title="${esc(N[v.candidate_id])}：${fmt(v.views)}回"><div class="fill" style="width:${(Number(v.views) / maxA * 100).toFixed(1)}%"></div></div>
+      <div class="val">${fmt(v.views)} 回</div>
+      <div class="meta">公開 ${esc(v.published_at_jst)}（JST）／ 出典 ${srcLinks(v.source_id, S)} ／ <a href="${safeUrl(v.video_url) || '#'}" target="_blank" rel="noopener noreferrer">動画ページ</a></div>
+    </div>`).join('');
+
+  // B: shared debates
+  const deb = vid.filter(v => v.video_id.startsWith('YT-DEBATE-'));
+  const maxB = Math.max(...deb.map(v => Number(v.views)));
+  $('#chartB').innerHTML = deb.map(v => `
+    <div class="bar">
+      <div class="lbl">${esc(v.date)} 討論会</div>
+      <div class="track"><div class="fill" style="width:${(Number(v.views) / maxB * 100).toFixed(1)}%"></div></div>
+      <div class="val">${fmt(v.views)} 回</div>
+      <div class="meta">観測時点 ${esc(v.snapshot_at)} ／ 出典 ${srcLinks(v.source_id, S)} ／ ${esc(v.title)}</div>
+    </div>`).join('');
+
+  // C: individual video observations
+  const cRows = vid.filter(v => !v.video_id.startsWith('YT-TVK-') && !v.video_id.startsWith('YT-DEBATE-'));
+  opt($('#filterC'), [['all', 'すべての候補'], ...cands.map(c => [c.candidate_id, c.name]), ['all7', '全候補共通']]);
+  const renderC = () => {
+    const f = $('#filterC').value;
+    const rows = cRows.filter(v => f === 'all' || v.candidate_id === f);
+    $('#tableC').innerHTML = `<thead><tr><th>日付</th><th>候補</th><th>動画</th><th>媒体</th><th>形式</th><th>再生回数</th><th>観測時点</th><th>出典</th><th>注記</th></tr></thead><tbody>` +
+      rows.map(v => `<tr><td>${esc(v.date)}</td><td>${esc(N[v.candidate_id] || '全候補')}</td><td>${esc(v.title)}</td><td>${esc(v.channel)}</td><td>${esc(v.video_format)}</td><td class="num">${v.views === '' ? '<span class="unk">未確認</span>' : fmt(v.views) + ' 回'}</td><td>${esc(v.snapshot_at)}</td><td>${srcLinks(v.source_id, S)}</td><td>${esc(v.note)}</td></tr>`).join('') +
+      `</tbody>`;
+  };
+  $('#filterC').addEventListener('change', renderC);
+  renderC();
+
+  // D: street and indoor events
+  opt($('#filterD1'), [['all', 'すべての候補'], ...cands.map(c => [c.candidate_id, c.name])]);
+  opt($('#filterD2'), [['all', 'すべての状態'], ...Object.entries(STATUS)]);
+  const renderD = () => {
+    const f1 = $('#filterD1').value, f2 = $('#filterD2').value;
+    const rows = street.filter(r => (f1 === 'all' || r.candidate_id === f1) && (f2 === 'all' || r.status === f2));
+    $('#countD').textContent = `表示 ${rows.length} 件（記録 ${street.length} 件。全期間の総数ではない）`;
+    $('#tableD').innerHTML = `<thead><tr><th>日付</th><th>時刻</th><th>候補</th><th>場所</th><th>種別</th><th>状態</th><th>出典</th><th>注記</th></tr></thead><tbody>` +
+      rows.map(r => `<tr><td>${esc(r.date)}</td><td>${esc(r.time_jst || '未確認')}</td><td>${esc(N[r.candidate_id])}</td><td>${esc(r.venue_or_station)}</td><td>${r.event_type === 'indoor_speech' ? '個人演説会' : '街頭演説'}</td><td><span class="tag">${esc(STATUS[r.status] || r.status)}</span></td><td>${srcLinks(r.source_id, S)}</td><td>${esc(r.notes)}</td></tr>`).join('') + `</tbody>`;
+  };
+  $('#filterD1').addEventListener('change', renderD);
+  $('#filterD2').addEventListener('change', renderD);
+  renderD();
+  $('#conflicts').innerHTML = conf.map(c => `
+    <div class="card"><b>${esc(N[c.candidate_id])} ${esc(c.date)} ${esc(c.time_jst)}</b>
+    <p class="note">候補者公式の予定：${esc(c.candidate_primary_claim)}（${srcLinks(c.source_a, S)}）<br>有志の記録：${esc(c.crowdsourced_claim)}（${srcLinks(c.source_b, S)}）<br>扱い：${esc(c.disposition)}。${esc(c.implementation_rule)}</p></div>`).join('');
+
+  // E: early votes
+  const n = id => num.find(x => x.metric_id === id);
+  const e25 = Number(n('M008').value), e26 = Number(n('M007').value);
+  const v25 = Number(n('M005').value), v26 = Number(n('M002').value);
+  const pct25 = e25 / v25 * 100, pct26 = e26 / v26 * 100;
+  const pairBars = (label, a, b, txt, maxV) => `
+    <div class="card"><b>${esc(label)}</b>
+    <div class="bar" style="grid-template-columns:70px 1fr 120px"><div class="lbl">2025年</div><div class="track"><div class="fill" style="width:${(a / maxV * 100).toFixed(1)}%;background:#9aa6b6"></div></div><div class="val">${txt(a)}</div></div>
+    <div class="bar" style="grid-template-columns:70px 1fr 120px"><div class="lbl">2026年</div><div class="track"><div class="fill" style="width:${(b / maxV * 100).toFixed(1)}%"></div></div><div class="val">${txt(b)}</div></div></div>`;
+  $('#chartE').innerHTML = `<div class="grid4">` +
+    pairBars('期日前投票の人数（速報）', e25, e26, v => fmt(Math.round(v)) + ' 人', Math.max(e25, e26)) +
+    pairBars('投票者総数（確定）', v25, v26, v => fmt(v) + ' 人', Math.max(v25, v26)) +
+    pairBars('期日前が投票者全体に占める割合', pct25, pct26, v => v.toFixed(2) + ' %', 40) +
+    `</div>`;
+  const abs = e26 - e25, dv = v26 - v25, resid = dv - abs;
+  $('#findingE').innerHTML = `期日前投票の人数は ${fmt(abs)} 人増えた。一方、投票者全体に占める割合は ${(pct26 - pct25).toFixed(2)} ポイント下がった。投票者総数の増加 ${fmt(dv)} 人のうち、期日前以外の増加は ${fmt(resid)} 人（${(resid / dv * 100).toFixed(2)} %）。割合は「期日前人数 ÷ 投票者総数」で計算。2026年の期日前人数は報道値（${esc(n('M007').source_id)}）で、公式PDFでは未照合。`;
+  $('#tableRe').innerHTML = `<thead><tr><th>候補</th><th>2025年 得票</th><th>2026年 得票</th><th>差</th><th>変化率</th><th>出典</th></tr></thead><tbody>` +
+    cands.filter(c => ['fukuyama', 'yamanaka'].includes(c.candidate_id)).map(c => {
+      const a = Number(c.votes_2025), b = Number(c.votes_2026);
+      return `<tr><td>${esc(c.name)}</td><td class="num">${fmt(a)}</td><td class="num">${fmt(b)}</td><td class="num">${fmt(b - a)}</td><td class="num">${((b - a) / a * 100).toFixed(2)} %</td><td>${srcLinks(c.source_2025 + ';' + c.source_2026, S)}</td></tr>`;
+    }).join('') + `</tbody>`;
+
+  // F: TV, press, missing data
+  $('#tableTV').innerHTML = `<thead><tr><th>日付</th><th>時間帯</th><th>放送局</th><th>番組</th><th>範囲</th><th>出典</th><th>注記</th></tr></thead><tbody>` +
+    tv.map(t => `<tr><td>${esc(t.date)}</td><td>${esc(t.slot_start)}–${esc(t.slot_end)}</td><td>${esc(t.network)}</td><td>${esc(t.program)}</td><td>${esc(t.scope)}</td><td>${srcLinks(t.source_id, S)}</td><td>${esc(t.notes)}</td></tr>`).join('') + `</tbody>`;
+  $('#tableNews').innerHTML = `<thead><tr><th>日付</th><th>媒体</th><th>見出し</th><th>形式</th><th>出典</th><th>注記</th></tr></thead><tbody>` +
+    press.map(p => `<tr><td>${esc(p.published_date)}</td><td>${esc(p.publisher)}</td><td>${esc(p.title)}</td><td>${esc(p.format)}</td><td>${srcLinks(p.source_id, S)}</td><td>${esc(p.note)}</td></tr>`).join('') + `</tbody>`;
+  const mediaNames = { television: 'テレビの候補別出演', newspaper: '新聞の全体量', radio: 'ラジオ', social: 'X・SNSの総量', advertising: '広告支出', street: '街頭演説の全数', youtube: 'YouTubeの全数' };
+  const byMed = {};
+  miss.forEach(m => { (byMed[m.medium] = byMed[m.medium] || []).push(m); });
+  $('#missing').innerHTML = Object.keys(byMed).map(k => `<div class="card"><b>${esc(mediaNames[k] || k)}</b><p class="note">未確認 ${byMed[k].filter(m => m.value_status === 'NOT_OBSERVED').length} 件（候補×項目）。0件とは解釈しない。</p><p class="note">必要な一次資料：${esc(byMed[k][0].required_source)}</p></div>`).join('');
+
+  // Sources
+  $('#tableSrc').innerHTML = `<thead><tr><th>ID</th><th>資料</th><th>発行者</th><th>種別</th><th>時点</th><th>制限事項</th></tr></thead><tbody>` +
+    src.map(s => `<tr><td>${esc(s.source_id)}</td><td>${safeUrl(s.url) ? `<a href="${safeUrl(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)}</a>` : esc(s.title)}</td><td>${esc(s.publisher)}</td><td>${esc(s.source_type)}</td><td>${esc(s.source_date_or_snapshot)}</td><td>${esc(s.limitations)}</td></tr>`).join('') + `</tbody>`;
+}
+main().catch(err => {
+  document.querySelector('.wrap').insertAdjacentHTML('beforeend', `<section><p class="unk">データの読み込みに失敗しました：${esc(err.message)}</p></section>`);
+});
+</script>
+</body>
+</html>

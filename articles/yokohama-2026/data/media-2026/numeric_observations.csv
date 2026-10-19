@@ -1,0 +1,52 @@
+﻿metric_id,date_or_period,candidate_id,metric,value,unit,source_id,population_or_scope,snapshot_at,phase,method,comparability,notes
+M001,2026-10-18,all,registered_electors,3108312,person,S001,横浜市2026市長選,2026-10-19,final,reported,,
+M002,2026-10-18,all,total_voters,1416233,person,S001,横浜市2026市長選,2026-10-19,final,reported,,
+M003,2026-10-18,all,valid_votes,1398358,ballot,S002,横浜市2026市長選,2026-10-19,final,reported,,
+M004,2026-10-18,all,turnout_pct,45.56,pct,S001,横浜市2026市長選,2026-10-19,final,reported,,
+M005,2025-08-03,all,total_voters,1292363,person,S003,横浜市2025市長選,2025-08-03,historical,reported,,
+M006,2025-08-03,all,turnout_pct,41.64,pct,S003,横浜市2025市長選,2025-08-03,historical,reported,,
+M007,2026-10-17,all,early_voters_preliminary,470980,person,S005,横浜市2026市長選期日前累計,2026-10-17,campaign,reported,news_reported_unverified_official,期日前速報値。後日修正の可能性あり / 報道値（毎日新聞配信S005）。公式ページ（S001）の本文には本値が見当たらず（出典からS001を外した）、公式PDFでは未照合。
+M008,2025-08-02,all,early_voters_preliminary,448839,person,S004;S006,横浜市2025市長選期日前累計,2025-08-02,campaign,reported,,期日前速報値
+M009,2026-10-18,all,female_turnout_pct,46.37,pct,S002,横浜市2026市長選女性,2026-10-19,final,reported,,
+M010,2026-10-18,all,male_turnout_pct,44.72,pct,S002,横浜市2026市長選男性,2026-10-19,final,reported,,
+M011,2025-08-03,all,female_turnout_pct,42.02,pct,S007,横浜市2025市長選女性,2025-08-03,historical,reported,,
+M012,2025-08-03,all,male_turnout_pct,41.24,pct,S007,横浜市2025市長選男性,2025-08-03,historical,reported,,
+VOTES-harasawa,2026-10-18,harasawa,candidate_votes,552207,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES-fukuyama,2026-10-18,fukuyama,candidate_votes,230418,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES-yamanaka,2026-10-18,yamanaka,candidate_votes,199746,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES-nakatani,2026-10-18,nakatani,candidate_votes,179739,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES-fujikawa,2026-10-18,fujikawa,candidate_votes,97819,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES-asaka,2026-10-18,asaka,candidate_votes,89052,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES-yamamoto,2026-10-18,yamamoto,candidate_votes,49377,votes,S001;S002,横浜市2026有効投票,2026-10-19,final,reported,,
+VOTES25-fukuyama,2025-08-03,fukuyama,candidate_votes,148236,votes,S003;S007,横浜市2025有効投票,2025-08-03,historical,reported,,
+VOTES25-yamanaka,2025-08-03,yamanaka,candidate_votes,663876,votes,S003;S007,横浜市2025有効投票,2025-08-03,historical,reported,,
+VIEW-YT-TVK-fujikawa,2026-10-04,fujikawa,video_views_at_snapshot,287,view,S013;S014,tvk 第一声ノーカット 藤川さちこ,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない
+VIEW-YT-TVK-yamanaka,2026-10-04,yamanaka,video_views_at_snapshot,815,view,S013;S014,tvk 第一声ノーカット 山中竹春,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない
+VIEW-YT-TVK-nakatani,2026-10-04,nakatani,video_views_at_snapshot,479,view,S013;S014,tvk 第一声ノーカット 中谷一馬,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない
+VIEW-YT-TVK-harasawa,2026-10-04,harasawa,video_views_at_snapshot,1281,view,S013;S014,tvk 第一声ノーカット 原沢あつみ,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない
+VIEW-YT-TVK-fukuyama,2026-10-04,fukuyama,video_views_at_snapshot,1219,view,S013;S014,tvk 第一声ノーカット 福山あつし,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない
+VIEW-YT-TVK-yamamoto,2026-10-04,yamamoto,video_views_at_snapshot,1713,view,S013;S014,tvk 第一声ノーカット 山本理顕,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない / 公開18:19、他6候補22:00のため観測までの公開時間が長い。
+VIEW-YT-TVK-asaka,2026-10-04,asaka,video_views_at_snapshot,433,view,S013;S014,tvk 第一声ノーカット あさか由香,2026-10-05 03:55,campaign,third_party_counter_or_report,video_only_not_unique_people,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない
+VIEW-YT-DEBATE-1005,2026-10-05,all7,video_views_at_snapshot,94000,view,S009;S010,選挙ドットコム全候補討論会,2026-10-06（報道時点）,campaign,third_party_counter_or_report,video_only_not_unique_people,全7候補共通の動画の総再生数。7等分・7倍計算禁止
+VIEW-YT-DEBATE-1010,2026-10-10,all7,video_views_at_snapshot,154000,view,S011;S012,ReHacQ全候補討論会,2026-10-10 23:30,campaign,third_party_counter_or_report,video_only_not_unique_people,全7候補共通; 10/10夜時点
+VIEW-YT-SAN-1012,2026-10-12,fukuyama,video_views_at_snapshot,89844,view,S015,センター南駅 福山あつし×神谷宗幣,2026-10-19閲覧,campaign,third_party_counter_or_report,video_only_not_unique_people,BitStar掲載値、投稿後に増減
+VIEW-YT-SAN-1014,2026-10-14,fukuyama,video_views_at_snapshot,109771,view,S015;S017,福山あつし×神谷宗幣 緊急対談,2026-10-19閲覧,campaign,third_party_counter_or_report,video_only_not_unique_people,ユーザー提供全文の対談。動画再生は投票者ではない
+VIEW-YT-SAN-1017,2026-10-17,fukuyama,video_views_at_snapshot,80084,view,S015,桜木町駅 福山あつし×神谷宗幣,2026-10-19閲覧,campaign,third_party_counter_or_report,video_only_not_unique_people,10月17日の同一演説が別チャンネルで再配信されている可能性、合算注意
+VIEW-YT-SAN-1013PROMO,2026-10-13,fukuyama,video_views_at_snapshot,44762,view,S015,横浜市民に拡散希望 参政党推薦,2026-10-19閲覧,campaign,third_party_counter_or_report,video_only_not_unique_people,ショートか通常か形式未独立確認。出演秒数不明
+VIEW-YT-SAN-1013PROFILE,2026-10-13,fukuyama,video_views_at_snapshot,40740,view,S015,甲子園球児が市長へ 紹介動画,2026-10-19閲覧,campaign,third_party_counter_or_report,video_only_not_unique_people,動画再生数は人間のユニーク数でない
+VIEW-YT-ARCT-1011YAMANAKA,2026-10-11,yamanaka,video_views_at_snapshot,30644,view,S016,横浜駅 街宣ライブ（10/11演説、10/12公開）,2026-10-18,campaign,third_party_counter_or_report,video_only_not_unique_people,動画公開日10/12、演説日10/11
+VIEW-YT-ARCT-1012FUJIKAWA,2026-10-12,fujikawa,video_views_at_snapshot,15176,view,S016,新杉田駅 街宣ライブ,2026-10-18,campaign,third_party_counter_or_report,video_only_not_unique_people,Arc Timesが取材・配信した動画の再生数
+VIEW-YT-ARCT-1011ASAKA,2026-10-11,asaka,video_views_at_snapshot,24023,view,S016,横浜駅 街宣ライブ,2026-10-18,campaign,third_party_counter_or_report,video_only_not_unique_people,BitStarのアーカイブで確認された候補関連配信。動画固有URLは未取得
+VIEW-YT-ARCT-1018POST,2026-10-18,all7,video_views_at_snapshot,51585,view,S016,開票後の分析放送,2026-10-18,post_vote_reporting,third_party_counter_or_report,video_only_not_unique_people,投票終了後の番組。選挙戦の事前露出には含めない
+DEBATE-1005-ATTEND,2026-10-05,all7,attending_candidates,7,person,S009,選挙ドットコム討論会,,campaign,reported,,
+DEBATE-1010-ATTEND,2026-10-10,all7,attending_candidates,7,person,S011,ReHacQ討論会,,campaign,reported,,
+DEBATE-1005-SPEECH,2026-10-05,all7,minutes_per_candidate_main_statement,8,minute,S010,選挙ドットコムの各候補主張持ち時間,,campaign,reported,,質問時間は別。登壇全時間ではない
+DEBATE-1010-DURATION,2026-10-10,all7,event_runtime_minutes_approx,140,minute,S011,ReHacQ討論会全体,2026-10-10,campaign,reported,,約2時間20分＝140分。均等に割って個人の出演秒数としない
+TIM-11,2026-10-18 11:00,all,election_day_turnout_including_early_NO,7.15,pct,S038,当日投票率（期日前投票を含まない速報）,,election_day,reported,,前回同時刻は約6.90％
+TIM-14,2026-10-18 14:00,all,election_day_turnout_including_early_NO,15.79,pct,S005,当日投票率（期日前投票を含まない速報）,,election_day,reported,,前回同時刻は約13.46％
+TIM-16,2026-10-18 16:00,all,election_day_turnout_including_early_NO,20.31,pct,S036,当日投票率（期日前投票を含まない速報）,,election_day,reported,,前回同時刻は約16.46％
+TIM-18,2026-10-18 18:00,all,election_day_turnout_including_early_NO,25.35,pct,S037,当日投票率（期日前投票を含まない速報）,,election_day,reported,,前回同時刻は約20.91％
+SAMPLE-EXIT,2026-10-18,all,exit_poll_respondents,2246,person,S035,共同通信45投票所,,post_vote_reporting,reported,,無党派35％、若年層28％/25％、パワハラ81％、SNS重視39％と同じ標本
+SAMPLE-LOC,2026-10-18,all,exit_poll_locations,45,locations,S035,共同通信,,post_vote_reporting,reported,,
+SAMPLE-IMP-SNS,2026-10-18,all,exit_poll_sns_important_pct,39,pct,S035,共同通信出口調査回答者,,post_vote_reporting,reported,,投票先をSNSにより変更した割合ではない
+SAMPLE-IMP-HARASSMENT,2026-10-18,all,exit_poll_harassment_important_pct,81,pct,S035,共同通信出口調査回答者,,post_vote_reporting,reported,,

@@ -1,0 +1,2 @@
+﻿conflict_id,candidate_id,date,time_jst,candidate_primary_claim,crowdsourced_claim,source_a,source_b,disposition,implementation_rule
+C001,nakatani,2026-10-17,17:00,青葉台駅,横浜駅,S020,S026,UNRESOLVED / candidate-primary schedule and crowdsourced field record disagree,両方の行事を実際の本人演説として足し上げない。既存台帳では出典別に保持し、UIでは食い違いを明示。

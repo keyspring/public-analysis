@@ -1,0 +1,20 @@
+﻿video_id,date,candidate_id,title,channel,video_format,views,snapshot_at,source_id,video_url,published_during_campaign,note,published_at_jst
+YT-TVK-fujikawa,2026-10-04,fujikawa,tvk 第一声ノーカット 藤川さちこ,tvk News Link,first_speech,287,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない,2026-10-04 22:00
+YT-TVK-yamanaka,2026-10-04,yamanaka,tvk 第一声ノーカット 山中竹春,tvk News Link,first_speech,815,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない,2026-10-04 22:00
+YT-TVK-nakatani,2026-10-04,nakatani,tvk 第一声ノーカット 中谷一馬,tvk News Link,first_speech,479,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない,2026-10-04 22:00
+YT-TVK-harasawa,2026-10-04,harasawa,tvk 第一声ノーカット 原沢あつみ,tvk News Link,first_speech,1281,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない,2026-10-04 22:00
+YT-TVK-fukuyama,2026-10-04,fukuyama,tvk 第一声ノーカット 福山あつし,tvk News Link,first_speech,1219,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない,2026-10-04 22:00
+YT-TVK-yamamoto,2026-10-04,yamamoto,tvk 第一声ノーカット 山本理顕,tvk News Link,first_speech,1713,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない / 公開18:19、他6候補22:00のため観測までの公開時間が長い。,2026-10-04 18:19
+YT-TVK-asaka,2026-10-04,asaka,tvk 第一声ノーカット あさか由香,tvk News Link,first_speech,433,2026-10-05 03:55,S013;S014,https://www.tvk-yokohama.com/election2026/,yes,同一テレビ局チャンネルの極めて初期の参考値。2026選挙全期間の総閲覧・認知度を示さない,2026-10-04 22:00
+YT-DEBATE-1005,2026-10-05,all7,選挙ドットコム全候補討論会,選挙ドットコム,shared_debate,94000,2026-10-06（報道時点）,S009;S010,https://www.youtube.com/live/f0Ea4k93QiM,yes,全7候補共通の動画の総再生数。7等分・7倍計算禁止,
+YT-DEBATE-1010,2026-10-10,all7,ReHacQ全候補討論会,ReHacQ,shared_debate,154000,2026-10-10 23:30,S011;S012,https://www.youtube.com/watch?v=y4SsW9c-gSI,yes,全7候補共通; 10/10夜時点,
+YT-SAN-1012,2026-10-12,fukuyama,センター南駅 福山あつし×神谷宗幣,参政党公式,campaign_rally,89844,2026-10-19閲覧,S015,,yes,BitStar掲載値、投稿後に増減,
+YT-SAN-1014,2026-10-14,fukuyama,福山あつし×神谷宗幣 緊急対談,参政党公式,one_on_one_dialogue,109771,2026-10-19閲覧,S015;S017,https://www.youtube.com/watch?v=5t4_iYEk8Uo,yes,ユーザー提供全文の対談。動画再生は投票者ではない,
+YT-SAN-1017,2026-10-17,fukuyama,桜木町駅 福山あつし×神谷宗幣,参政党公式,campaign_rally,80084,2026-10-19閲覧,S015,,yes,10月17日の同一演説が別チャンネルで再配信されている可能性、合算注意,
+YT-SAN-1013PROMO,2026-10-13,fukuyama,横浜市民に拡散希望 参政党推薦,参政党公式,short_promo,44762,2026-10-19閲覧,S015,,yes,ショートか通常か形式未独立確認。出演秒数不明,
+YT-SAN-1013PROFILE,2026-10-13,fukuyama,甲子園球児が市長へ 紹介動画,参政党公式,candidate_profile,40740,2026-10-19閲覧,S015,,yes,動画再生数は人間のユニーク数でない,
+YT-ARCT-1011YAMANAKA,2026-10-11,yamanaka,横浜駅 街宣ライブ（10/11演説、10/12公開）,Arc Times,rally_coverage,30644,2026-10-18,S016,,yes,動画公開日10/12、演説日10/11,
+YT-ARCT-1012FUJIKAWA,2026-10-12,fujikawa,新杉田駅 街宣ライブ,Arc Times,rally_coverage,15176,2026-10-18,S016,,yes,Arc Timesが取材・配信した動画の再生数,
+YT-ARCT-1011ASAKA,2026-10-11,asaka,横浜駅 街宣ライブ,Arc Times,rally_coverage,24023,2026-10-18,S016,,yes,BitStarのアーカイブで確認された候補関連配信。動画固有URLは未取得,
+YT-NAKATANI-1015,2026-10-15,nakatani,ひろゆき×中谷一馬 インタビュー,中谷一馬チャンネル,one_on_one_dialogue,,未取得,S018,https://www.youtube.com/watch?v=Fs7ez3_i4lU,yes,視聴回数を収集できず。0回とは絶対に表示しない,
+YT-ARCT-1018POST,2026-10-18,all7,開票後の分析放送,Arc Times,post_election_commentary,51585,2026-10-18,S016,,no,投票終了後の番組。選挙戦の事前露出には含めない,
