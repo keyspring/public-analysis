@@ -55,6 +55,7 @@ th{background:var(--shade);font-size:11px}
 td.num{text-align:right;font-variant-numeric:tabular-nums}
 a{color:var(--teal)}
 @media (max-width:640px){section{padding:14px}.pair{grid-template-columns:1fr}}
+.feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}.feature-group{border:1px solid var(--line);background:var(--card);padding:14px;border-radius:12px;min-width:0}.feature-group h4{font-size:14px;line-height:1.5;margin:0 0 5px}.feature-group .snap{font-size:12px;color:var(--muted);margin:0 0 12px}.feature-button{display:block;width:100%;padding:8px 5px;margin:7px 0;background:transparent;border:1px solid var(--line);border-radius:8px;text-align:left;color:var(--ink);cursor:pointer}.feature-button:hover{border-color:var(--teal);background:rgba(22,125,131,.05)}.feature-button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}.feature-label{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700}.feature-track{display:block;background:var(--shade);height:11px;margin-top:7px;overflow:hidden;border-radius:6px}.feature-fill{display:block;background:var(--teal);height:100%;border-radius:6px}.feature-group .foot{font-size:11px;color:var(--muted);margin:9px 0 0}@media(max-width:740px){.feature-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -79,13 +80,18 @@ a{color:var(--teal)}
 
 <section id="video">
 <p class="kicker">A</p>
-<h2>tvk第一声動画の再生回数</h2>
+<h2 id="first-speech">tvk第一声動画：同時公開の6候補</h2>
 <p class="note">tvk第一声動画の再生回数（2026/10/5 03:55時点の第三者集計）。棒をタップすると詳細と出典が出ます。</p>
-<div class="warnbox">これは選挙期間の総SNS到達ではありません。候補者の人気ランキングでもありません。公開時刻が違うため、観測までの経過時間も候補で異なります。</div>
+<p class="note">同じtvkチャンネルで10月4日22:00に公開された6本を、翌5日03:55の記録で比較。山本氏の動画は18:19公開なので、この共通条件のグラフから分けています。</p>
 <div class="scroll"><svg id="chartA" role="img" aria-label="tvk第一声動画の再生回数の棒グラフ"></svg></div>
 <div class="detail" id="detailA">棒をタップすると、候補名・再生数・公開時刻・観測時刻・出典が表示されます。</div>
+<p class="note">別条件の記録：山本理顕氏は18:19公開、翌03:55時点で1,713回（<a href="https://www.youtube.com/watch?v=uTAfcPk8r5I" target="_blank" rel="noopener noreferrer">第一声動画</a>）。</p>
+<h3 id="tvk-features">tvk『NewsLink』7候補特集：再生数の記録を3組で比較</h3>
+<p class="note">10月13〜15日に放送された候補者特集7本は、10月15日21:54〜22:00に動画公開。再生数を記録した時刻は3組に分かれるため、同じ組の中だけで棒の長さを比較しています。</p>
+<div id="featureGrid" class="feature-grid" aria-label="tvk候補者特集7本の観測時刻別比較"></div>
+<div class="detail" id="detailFeatures" aria-live="polite">各候補の棒をタップすると、放送日・公開時刻・再生数の観測時刻・出典と動画へのリンクを表示します。</div>
 
-<h3>B. 全候補共通の討論会（2回）</h3>
+<h3 id="debates">B. 全候補共通の討論会（2回）</h3>
 <p class="note">7候補が出演した同じ動画の、動画全体の閲覧数。候補別に配分していません。2回の観測は時点が違うため、同時刻の比較ではありません。</p>
 <div class="scroll"><svg id="chartB" role="img" aria-label="共通討論会の再生回数の棒グラフ"></svg></div>
 <div class="detail" id="detailB">棒をタップすると、観測時点・出演対象・出典が表示されます。</div>
@@ -221,10 +227,11 @@ function legendKeys(items) {
 }
 
 async function main() {
-  const [src, cands, vid, street, tv, press, miss, conf, num] = await Promise.all([
+  const [src, cands, vid, street, tv, press, miss, conf, num, features] = await Promise.all([
     load('source_ledger.csv'), load('candidates.csv'), load('video_observations.csv'),
     load('street_event_samples.csv'), load('tv_program_mentions.csv'), load('press_story_samples.csv'),
-    load('missingness_by_candidate.csv'), load('source_conflicts.csv'), load('numeric_observations.csv')
+    load('missingness_by_candidate.csv'), load('source_conflicts.csv'), load('numeric_observations.csv'),
+    load('tvk_candidate_features_7.csv')
   ]);
   const S = Object.fromEntries(src.map(x => [x.source_id, x]));
   const N = Object.fromEntries(cands.map(c => [c.candidate_id, c.name]));
@@ -232,13 +239,15 @@ async function main() {
   const byOrder = (a, b) => order.indexOf(a.candidate_id) - order.indexOf(b.candidate_id);
 
   // ---- Overview counts (observation records, not totals)
-  const tvk = vid.filter(v => v.video_id.startsWith('YT-TVK-')).sort(byOrder);
+  const tvkAll = vid.filter(v => v.video_id.startsWith('YT-TVK-')).sort(byOrder);
+  const tvk = tvkAll.filter(v => v.candidate_id !== 'yamamoto');
   const deb = vid.filter(v => v.video_id.startsWith('YT-DEBATE-')).sort((a, b) => a.date.localeCompare(b.date));
   const other = vid.filter(v => !v.video_id.startsWith('YT-TVK-') && !v.video_id.startsWith('YT-DEBATE-'));
   const cnt = (arr, f) => arr.filter(f).length;
   const stats = [
     ['出典台帳', src.length, '件の出典', '一次資料・二次資料を含む'],
     ['動画の観測', vid.length, '行', `再生数を確認 ${cnt(vid, v => v.views !== '')} 行 / 未確認 ${cnt(vid, v => v.views === '')} 行`],
+    ['tvk候補者特集', features.length, '本', '観測時刻ごとに3組で表示'],
     ['街頭・演説の記録', street.length, '行', `予定 ${cnt(street, r => r.status.includes('scheduled'))} / 実施報告 ${cnt(street, r => r.status.includes('done'))} / 映像確認 ${cnt(street, r => r.status === 'video_archived')}`],
     ['テレビ番組の記録', tv.length, '行', '番組枠。候補の出演時間ではない'],
     ['新聞・Web記事', press.length, '行', '選定したサンプル。報道の総量ではない'],
@@ -266,6 +275,27 @@ async function main() {
     });
     svgA.appendChild(g);
   });
+
+  // ---- A2: tvk seven candidate news features by matching snapshot
+  (function(rows){
+  const stamps=[...new Set(rows.map(v=>v.observed_at_jst))].sort();
+  const target=$('#featureGrid');
+  target.innerHTML=stamps.map((stamp,j)=>{
+    const group=rows.filter(v=>v.observed_at_jst===stamp);
+    const top=Math.max(...group.map(v=>Number(v.views)));
+    return `<article class="feature-group"><h4>観測グループ ${j+1}</h4><p class="snap">${esc(stamp)} 時点（${group.length}候補）</p>`+
+      group.map(v=>`<button type="button" class="feature-button" data-feature="${esc(v.candidate_id)}"><span class="feature-label"><span>${esc(v.candidate_name)}</span><span>${fmt(v.views)}回</span></span><span class="feature-track"><span class="feature-fill" style="width:${(Number(v.views)/top*100).toFixed(2)}%"></span></span></button>`).join('')+
+      `<p class="foot">棒の長さはこのグループ内だけの比較。</p></article>`;
+  }).join('');
+  target.querySelectorAll('.feature-button').forEach(b=>b.addEventListener('click',()=>{
+    const v=rows.find(x=>x.candidate_id===b.dataset.feature);
+    if(!v)return;
+    $('#detailFeatures').innerHTML=`<div class="t">${esc(v.candidate_name)}：${fmt(v.views)}回</div>`+
+      `<div>番組放送日：${esc(v.broadcast_date)}／動画公開：${esc(v.published_at_jst)}／観測：${esc(v.observed_at_jst)}</div>`+
+      `<div class="note"><a target="_blank" rel="noopener noreferrer" href="${safeUrl(v.source_url)}">観測値の記録</a> ・ <a target="_blank" rel="noopener noreferrer" href="${safeUrl(v.video_url)}">動画を開く</a></div>`+
+      `<div class="note">異なる観測時刻の再生数を直接比較しないでください。</div>`;
+  }));
+})(features);
 
   // ---- B: shared debates
   const svgB = $('#chartB');
