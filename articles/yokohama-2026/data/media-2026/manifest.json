@@ -1,0 +1,41 @@
+{
+  "title": "横浜市長選2026 選挙戦メディア・街頭・SNS発信の定量エビデンス台帳",
+  "generated_at_jst": "2026-10-19",
+  "scope_start": "2026-10-02",
+  "scope_end": "2026-10-18",
+  "campaign_start": "2026-10-04",
+  "campaign_end": "2026-10-17",
+  "base_repo": "keyspring/public-analysis",
+  "existing_site_path": "articles/yokohama-2026/index.html",
+  "research_rules": [
+    "数値ゼロと欠測を区別",
+    "同一動画の再生数と視聴者実人数は異なる",
+    "テレビ番組放送枠は候補者露出秒数ではない",
+    "選挙前の討論と選挙後の報道を分離",
+    "予定の街頭活動を実施済みとみなさない",
+    "記事の再掲・転載を重複排除",
+    "動画視聴者が有権者とは限らない",
+    "票数と露出の相関は因果関係を証明しない"
+  ],
+  "file_rows": {
+    "source_ledger.csv": 42,
+    "candidates.csv": 7,
+    "video_observations.csv": 19,
+    "street_event_samples.csv": 48,
+    "tv_program_mentions.csv": 11,
+    "press_story_samples.csv": 11,
+    "numeric_observations.csv": 51,
+    "missingness_by_candidate.csv": 84,
+    "evidence_coverage_not_comparable.csv": 7,
+    "source_conflicts.csv": 1
+  },
+  "source_count": 42,
+  "incomplete_domains": [
+    "radio_total",
+    "all_tv_airtime",
+    "all_print_coverage",
+    "complete_sns_views",
+    "campaign_spending",
+    "complete_street_speeches"
+  ]
+}

@@ -1,0 +1,43 @@
+﻿source_id,title,url,publisher,source_type,source_date_or_snapshot,limitations
+S001,横浜市2026市長選の公式開票確定・期日前集計,https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.html,横浜市選挙管理委員会,primary_official,2026-10-19,選管の期日前は速報値、修正可能性あり
+S002,横浜市2026確定結果PDF,https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.files/R08_shicho_kekka.pdf,横浜市選挙管理委員会,primary_official,2026-10-19,
+S003,横浜市2025市長選の公式結果・期日前PDF,https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20250803_shicho.html,横浜市選挙管理委員会,primary_official,2025-08-03,2026と候補者構成・選挙事情が違う
+S004,2025市長選の期日前速報 PDF,https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20250803_shicho.files/0012_20250803.pdf,横浜市選挙管理委員会,primary_official,2025-08-02,速報値
+S005,2026市長選の期日前累計47万980人・前年との差,https://news.tnc.ne.jp/politics/942879_1.html,毎日新聞記事配信,news_agency,2026-10-18,2026選管集計に基づく速報; 投票率は14時速報のもので期日前別
+S006,2025市長選公式期日前区別速報の再掲,https://kanagaku.com/archives/79443,カナガク,secondary_data_reprint,2025-08-03,一次資料S004で裏取り; サイトは転載整理
+S007,2025市長選候補者得票と有権者数,https://seijinomura.townnews.co.jp/m/election/2025/yokohama-shicyou.html,タウンニュース政治の村,news_compilation,2025-08-03,
+S008,2025市長選候補別公式・選挙ドットコム,https://go2senkyo.com/local/senkyo/25650,選挙ドットコム,electoral_result,2025-08-03,
+S009,2026年10月5日全7候補ネット討論会・主催公式,https://ichi-ni.jp/info/2026100601/,イチニ株式会社・選挙ドットコム,primary_organizer,2026-10-06,登壇したことの裏付け
+S010,10月5日全7候補討論会10月6日時点約9万4千再生,https://www.townnews.co.jp/0113/2026/10/07/856229.html,タウンニュース,news,2026-10-06,動画の時点付き再生回数、人数ではない
+S011,10月10日全7候補ReHacQ討論会と10日23時30分時点15.4万再生,https://www.townnews.co.jp/0102/2026/10/11/856884.html,タウンニュース,news,2026-10-10 23:30,動画の時点付き再生回数; 会全体の閲覧回数
+S012,ReHacQ全7候補討論会本編,https://www.youtube.com/watch?v=y4SsW9c-gSI,ReHacQ,primary_video,2026-10-10,配信アーカイブ; view計数はS011
+S013,tvk市長選特設・7候補第一声動画,https://www.tvk-yokohama.com/election2026/,テレビ神奈川,primary_broadcaster,2026-10-18,選挙後の特番は投票前の活動として数えない
+S014,tvk7候補第一声YouTube再生数一覧（10月5日03:55取得分）,https://yutura.net/channel/83460/latest/?p=1,ユーチュラ,third_party_video_index,2026-10-05 03:55,古い時点のスナップショット; 視聴回数の時間帯が番組で均一とは保証しない
+S015,参政党公式チャンネルの投稿と再生回数（10月19日閲覧）,https://db.bitstar.tokyo/youtube/UCjrN-o1HlLk22qcauIKDtlQ?content=posts,BitStar,third_party_video_index,2026-10-19,候補者動画の公開回数のみ、全YouTubeではない・数字は変動
+S016,Arc Timesチャンネル候補街宣配信と再生回数,https://db.bitstar.tokyo/youtube/UCJpCI6Q0mcy6D_FMqenM94g?content=posts,BitStar,third_party_video_index,2026-10-18,投稿日時と演説日時は異なる場合あり・数字変動
+S017,10月14日福山×神谷対談の原動画,https://www.youtube.com/watch?v=5t4_iYEk8Uo,参政党公式,primary_video,2026-10-14,ユーザー提供文字起こしと一致; クリップでなく番組
+S018,10月15日中谷×ひろゆき対談の原動画,https://www.youtube.com/watch?v=Fs7ez3_i4lU,中谷一馬チャンネル,primary_video,2026-10-15,ユーザー提供文字起こしに基づく; 再生数は未取得
+S019,原沢候補10月11日街頭遊説6駅予定,https://go2senkyo.com/seijika/200402/posts/1531674,原沢候補公式ブログ（選挙ドットコム）,candidate_primary,2026-10-10,予定。実施確定数ではない
+S020,中谷候補10月17日最終日7駅演説予定,https://go2senkyo.com/seijika/75109/posts/1539822,中谷候補公式ブログ（選挙ドットコム）,candidate_primary,2026-10-16,予定。場所変更可能性あり
+S021,山本候補個人演説会5会場の予定と定員,https://sites.google.com/riken-yamamoto.com/local-area-republic/山本理顕-地域社会圏-助け合って住む,山本理顕陣営,candidate_primary,2026-10,予定。会場定員は実際の来場者ではない
+S022,藤川候補10月10日2駅の街頭演説報告,https://go2senkyo.com/seijika/126930/posts/1530901,藤川候補公式ブログ（選挙ドットコム）,candidate_primary,2026-10-10,実施報告（自己申告）; 別の駅の予定と混ぜない
+S023,藤川候補10月10日予定2駅,https://go2senkyo.com/seijika/126930/posts/1530900,藤川候補公式ブログ（選挙ドットコム）,candidate_primary,2026-10-10,予定。上記S022と時間重複を別イベントとして扱う
+S024,藤川候補10月9日の4回目街頭演説実施報告,https://go2senkyo.com/seijika/126930/posts/1531187,藤川候補公式ブログ（選挙ドットコム）,candidate_primary,2026-10-10,この投稿中の4回目は当日内序数・通期4回ではない
+S025,原沢候補10月9日街頭演説支援者,https://go2senkyo.com/seijika/200402/posts/1530366,原沢候補公式ブログ（選挙ドットコム）,candidate_primary,2026-10-09,
+S026,2026横浜街宣マップの日付別予定・記録,https://yokohama-rally-map.base44.app/schedule,横浜街宣マップ・有志,crowdsourced,2026-10-19,網羅性なし・予定と記録混在・独立した実施確認とは限らない
+S027,2026市長選のテレビ番組での話題掲載（TVでた蔵）,https://datazoo.jp/w/横浜市長選挙/74814589,TVでた蔵,third_party_tv_index,2026-10-02..05,テレビ番組全体の放送枠は候補の露出秒数ではない; 掲載≠全番組網羅
+S028,2026市長選のテレビ番組での話題掲載（別番組例）,https://datazoo.jp/w/横浜市長選挙/74825591,TVでた蔵,third_party_tv_index,2026-10-04,S027と重複する番組あり、event_idで重複排除
+S029,2026市長選7候補への14問アンケート原文,https://seijinomura.townnews.co.jp/m/election/2026/mayorofyokohama.html,タウンニュース政治の村,news_primary_questionnaire,2026-10,全7候補、回答14問≠14本の独立新聞記事
+S030,タウンニュース候補者アンケート第2回,https://www.townnews.co.jp/0108/2026/10/13/857146.html,タウンニュース,news,2026-10-13,別区版の再掲は重複排除
+S031,タウンニュース候補者アンケート第6回,https://www.townnews.co.jp/0101/2026/10/14/857340.html,タウンニュース,news,2026-10-14,別区版の再掲は重複排除
+S032,タウンニュース候補者アンケート第8回,https://www.townnews.co.jp/0101/2026/10/15/857703.html,タウンニュース,news,2026-10-15,別区版の再掲は重複排除
+S033,テレビ朝日NEWS候補7人の争点・選挙終盤,https://news.tv-asahi.co.jp/news_society/articles/900202036.html,テレビ朝日,news,2026-10-16,放送時間ではなくWEB記事
+S034,tvk7候補届け出報道,https://www.tvk-yokohama.com/tvknews-archive/2026/10/04/20091.php,tvk,news,2026-10-04,7候補が記事に登場する一般報道
+S035,2026共同通信の出口調査45か所2246人,https://news.livedoor.com/article/detail/32597719/,共同通信,news_survey,2026-10-18,調査対象は投票所の回答者; 選挙後速報
+S036,2026市長選10月18日午後16時報道,https://home.kingsoft.jp/news/news/mainichi/20261018k0000m010087000c.html,毎日新聞,news_agency,2026-10-18,全国配信の転載; 見出し重複に注意
+S037,2026市長選10月18日18時速報,https://home.kingsoft.jp/news/news/mainichi/20261018k0000m010114000c.html,毎日新聞,news_agency,2026-10-18,
+S038,2026市長選10月18日午前11時速報,https://news.tnc.ne.jp/economy/942848_1.html,毎日新聞,news_agency,2026-10-18,
+S041,2026候補政党支援関係の10/4関連記事,https://news.livedoor.com/article/detail/32483767/,神奈川新聞ほか報道,news,2026-10-04,新聞の紙面露出とは限らない
+S042,2026候補者の終盤記事,https://news.livedoor.com/article/detail/32592409/,神奈川新聞ほか報道,news,2026-10-17,前記事と異なる報道。配信サイト重複を別紙と数えない
+S043,2026年10月10日ReHacQ候補全員対談・候補側の報告,https://go2senkyo.com/seijika/168298/posts/1535732,柏原市議（候補支援者）,campaigner_account,2026-10-14,候補応援者からの説明・公式司会者資料ではない
+S044,2026市長選・横浜市選管、10/5-10/17期日前実施,https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_rikkouho.html,横浜市選挙管理委員会,primary_official,2026-10-04,
