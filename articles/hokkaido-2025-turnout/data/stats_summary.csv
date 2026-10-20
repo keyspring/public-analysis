@@ -1,0 +1,10 @@
+﻿analysis,estimate,n,df,statistic,p_two_sided_approx,note
+ward turnout vs over65 (Pearson),0.7337,10,8,3.054,0.0157,2020年65歳以上割合。探索的・因果ではない
+ward turnout vs station density (Pearson),0.3729,10,8,1.137,0.2884,当日投票所数/有権者1000人
+over65 vs station density (Pearson),0.8161,10,8,,,多重共線性：VIF=2.995
+partial r: over65 | station,0.8008,10,7,,,探索的
+partial r: station | over65,-0.5753,10,7,,,探索的・不安定
+OLS b over65 (turnout ~ over65 + stations),0.8772,10,7,3.537,0.0095,SE=0.248
+OLS b stations/1000 (turnout ~ over65 + stations),-47.2841,10,7,-1.861,0.1051,SE=25.4061。符号は部分的な関係。信頼区間は広い
+2022 vs 2025 ward turnout (Pearson),0.9779,10,8,,,Spearman=0.9636
+2022 vs 2025 town turnout (Pearson),0.9942,6,4,,,Spearman=1.0。n=6
