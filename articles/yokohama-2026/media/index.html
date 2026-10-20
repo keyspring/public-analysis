@@ -126,11 +126,12 @@ a{color:var(--teal)}
 <section id="media">
 <p class="kicker">F</p>
 <h2>テレビ・新聞・ラジオの観測状況</h2>
+<p class="note">選挙期間中に確認したテレビ番組枠は13件（10月4〜5日中心の9件と、tvk 10月13〜16日の4件）。投票日前の10月2日と開票後の10月18日にも各1件があり、台帳は計15件。全局・全番組の網羅ではない。</p>
 <p class="warnbox">番組の放送枠は候補者の出演時間ではありません。記事の一覧は選んだサンプルであり、報道の総量ではありません。</p>
 <div class="scroll"><svg id="timelineF" role="img" aria-label="テレビと新聞・Web記事の掲載記録の日付別タイムライン"></svg></div>
 <div class="legend"><span><i class="sw" style="background:var(--teal)"></i>テレビ番組（確認できた枠）</span><span><i class="sw" style="background:var(--gray)"></i>新聞・Web記事（選定サンプル）</span></div>
 <div class="detail" id="detailF">点をタップすると、番組名・記事名・出典が表示されます。</div>
-<div class="card" style="margin-top:12px"><b>ラジオ：取得できていません</b><p class="note">番組の出演件数・時間を確認できていません。実績ゼロとは扱いません。</p></div>
+<div class="card" style="margin-top:12px"><b>ラジオ：投票案内と候補者出演を分けて記録</b><p class="note">FMヨコハマの市提供番組『YOKOHAMA My Choice!』の<a href="https://www.fmyokohama.jp/choice/2026/10/1011.html" target="_blank" rel="noopener noreferrer">10月11日放送紹介ページ</a>には、市長選の投票日・投票時間・期日前投票の案内がある。一方、候補者別の出演回数や放送秒数は測定していない。案内情報を候補者露出へ加算しない。</p></div>
 </section>
 
 <section id="early">
@@ -155,7 +156,7 @@ a{color:var(--teal)}
 <section id="details">
 <p class="kicker">DETAILS</p>
 <h2>詳細データ・出典</h2>
-<details><summary>出典台帳（42件）</summary><div class="scroll"><table id="tSrc"></table></div></details>
+<details><summary>出典台帳（47件）</summary><div class="scroll"><table id="tSrc"></table></div></details>
 <details><summary>動画の観測（全行）</summary><div class="scroll"><table id="tVid"></table></div></details>
 <details><summary>街頭活動の記録（全行）</summary><div class="scroll"><table id="tStreet"></table></div></details>
 <details><summary>数値の観測（全行）</summary><div class="scroll"><table id="tNum"></table></div></details>
@@ -410,16 +411,28 @@ async function main() {
   svgF.appendChild(svgEl('text', { x: 0, y: laneTv + 4, 'font-size': 13, 'font-weight': 700, fill: 'currentColor' }, 'テレビ番組'));
   svgF.appendChild(svgEl('text', { x: 0, y: laneNews + 4, 'font-size': 13, 'font-weight': 700, fill: 'currentColor' }, '新聞・Web記事'));
   const dayX = d => { const i = DATES.indexOf(d); return i < 0 ? null : lF + i * dayW + dayW / 2; };
-  const placeDot = (x, y, color, onTap) => { if (x == null) return; const c = svgEl('circle', { cx: x, cy: y, r: 7, fill: color, stroke: '#0f5c61', 'stroke-width': 1 }); const g = svgEl('g', { class: 'bars' }); g.appendChild(c); makeTappable(g, onTap); svgF.appendChild(g); };
+
+  // Count markers avoid burying several TV listings outside the SVG at crowded dates.
+  const placeCount = (date, y, color, count, label, onTap) => {
+    const x = dayX(date); if (x == null) return;
+    const g = svgEl('g', { class: 'bars', 'aria-label': date + ' ' + label + count + '件' });
+    g.appendChild(svgEl('circle', { cx: x, cy: y, r: 11, fill: color, stroke: '#fff', 'stroke-width': 1.5 }));
+    g.appendChild(svgEl('text', { x, y: y + 3.5, fill: '#fff', 'font-size': 10, 'text-anchor': 'middle', 'font-weight': 700 }, count));
+    makeTappable(g, onTap); svgF.appendChild(g);
+  };
   const tvBy = {}; tv.forEach(t => { (tvBy[t.date] = tvBy[t.date] || []).push(t); });
-  Object.entries(tvBy).forEach(([d, arr]) => arr.forEach((t, k) => placeDot(dayX(d), laneTv - 6 - k * 12, '#167d83', () => {
-    $('#detailF').innerHTML = `<div class="t">${esc(t.date)} ${esc(t.slot_start)}–${esc(t.slot_end)}：${esc(t.network)} ${esc(t.program)}</div><div class="note">範囲：${esc(t.scope)}。番組の放送枠は候補の出演時間ではありません。</div><div class="note">出典：${srcLinks(t.source_id, S)}</div><div class="note">${esc(t.notes)}</div>`;
-  })));
+  Object.entries(tvBy).forEach(([d, arr]) => placeCount(d, laneTv - 3, '#167d83', arr.length, 'テレビ観測 ', () => {
+    $('#detailF').innerHTML = '<div class="t">' + esc(d) + '：テレビ番組枠の観測 ' + arr.length + '件</div>' +
+      arr.map(t => '<div class="note"><b>' + esc(t.slot_start) + '–' + esc(t.slot_end) + '　' + esc(t.network) + '・' + esc(t.program) + '</b> [' +
+      esc(t.scope) + ']　出典：' + srcLinks(t.source_id, S) + '<div>' + esc(t.notes) + '</div></div>').join('');
+  }));
   const prBy = {}; press.forEach(p => { (prBy[p.published_date] = prBy[p.published_date] || []).push(p); });
-  Object.entries(prBy).forEach(([d, arr]) => arr.forEach((p, k) => placeDot(dayX(d), laneNews - 6 - k * 12, '#a6b4c4', () => {
-    $('#detailF').innerHTML = `<div class="t">${esc(p.published_date)}：${esc(p.publisher)}</div><div>${esc(p.title)}</div><div class="note">形式：${esc(p.format)}／対象：${esc(p.candidate_scope)}</div><div class="note">出典：${srcLinks(p.source_id, S)}</div><div class="note">${esc(p.note)}</div>`;
-  })));
-  svgF.appendChild(svgEl('text', { x: lF, y: HF - 8, 'font-size': 11, fill: '#5b6b7b' }, '点の位置は掲載・放送日。同日の複数件は縦に並べています。'));
+  Object.entries(prBy).forEach(([d, arr]) => placeCount(d, laneNews - 3, '#8293aa', arr.length, '記事観測 ', () => {
+    $('#detailF').innerHTML = '<div class="t">' + esc(d) + '：新聞・Web記事サンプル ' + arr.length + '件</div>' +
+      arr.map(p => '<div class="note"><b>' + esc(p.publisher) + '</b>　' + esc(p.title) +
+      '<div>形式：' + esc(p.format) + '／対象：' + esc(p.candidate_scope) + '　出典：' + srcLinks(p.source_id, S) + '</div></div>').join('');
+  }));
+  svgF.appendChild(svgEl('text', { x: lF, y: HF - 8, 'font-size': 11, fill: '#5b6b7b' }, '数字はこの日付について収集できた記録行の数。点を押すとその日の番組・記事一覧を表示します。'));
 
   // ---- E: early votes
   const n = id => num.find(x => x.metric_id === id);
