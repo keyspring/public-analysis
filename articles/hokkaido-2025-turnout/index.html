@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2025年参院選 投票率の地域差｜札幌・道北</title>
+<meta name="description" content="2025年参院選（比例代表）の札幌市10区・312投票区と道北6自治体の投票率を、公式資料のCSVから再計算して示す研究ページ。">
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--fg:#17202e;--muted:#5b6778;--accent:#137b7b;--warn:#8a5a00;--line:#dfe4ea;--s1:#2c7fb8;--s2:#e07b39}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0f141c;--card:#171f2b;--fg:#e8edf4;--muted:#9aa6b6;--accent:#4fc3c3;--warn:#f0c070;--line:#2b3644;--s1:#6fb7e6;--s2:#f0a06a}}
+:root[data-theme="dark"]{--bg:#0f141c;--card:#171f2b;--fg:#e8edf4;--muted:#9aa6b6;--accent:#4fc3c3;--warn:#f0c070;--line:#2b3644;--s1:#6fb7e6;--s2:#f0a06a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,"Yu Gothic","Hiragino Sans",sans-serif}
+main{max-width:920px;margin:0 auto;padding:16px}
+h1{font-size:1.45rem;margin:.4rem 0}
+h2{font-size:1.2rem;margin:0 0 .4rem}
+section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin:14px 0}
+a{color:var(--accent);font-weight:600}
+.note{color:var(--muted);font-size:.9rem}
+.warn{border-left:4px solid var(--warn);padding:6px 10px;font-size:.92rem}
+.ctl{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:6px 0 10px}
+select{font:inherit;padding:4px 8px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+svg{width:100%;height:auto;display:block}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{border-bottom:1px solid var(--line);padding:4px 6px;text-align:right}
+th:first-child,td:first-child{text-align:left}
+.tablewrap{overflow-x:auto}
+.kpi{display:flex;flex-wrap:wrap;gap:8px}
+.kpi div{border:1px solid var(--line);border-radius:8px;padding:6px 10px;min-width:140px}
+.kpi b{display:block;font-size:1.15rem}
+.ok{color:#1c7c3a;font-weight:700}
+.ng{color:#b3261e;font-weight:700}
+nav a{margin-right:10px;font-size:.92rem}
+footer{color:var(--muted);font-size:.85rem;margin:20px 0}
+</style>
+</head>
+<body>
+<main>
+<h1>2025年参院選 投票率の地域差｜札幌・道北</h1>
+<p class="note">対象：2025年7月20日執行 参議院議員通常選挙（比例代表）。数値は北海道選挙管理委員会・札幌市選挙管理委員会の公式表（CSV）から再計算。</p>
+<nav>
+<a href="#s1">1 札幌10区</a><a href="#s2">2 312投票区</a><a href="#s3">3 道北と札幌</a><a href="#s4">4 2022→2025</a><a href="#s5">5 高齢者割合</a><a href="#s6">6 投票所密度</a><a href="#s7">7 地図</a><a href="#s8">8 出典・定義・限界</a>
+</nav>
+<p class="warn">この分析は、AIの支援で数値を集計・可視化しています。誤りが含まれる可能性があります。表示値は出典のリンク先（公式資料）で確認してください。相関は因果関係を示しません。</p>
+
+<section id="s1">
+<h2>1. 札幌10区の投票率</h2>
+<div class="ctl">
+<label>年 <select id="s1year"><option value="2025">2025年参院選</option><option value="2022">2022年（前回・括弧書き）</option></select></label>
+<label>並び順 <select id="s1sort"><option value="name">区名順</option><option value="val">投票率順</option></select></label>
+</div>
+<div id="s1chart"></div>
+<p class="note" id="s1note"></p>
+<div class="tablewrap"><table id="s1table"></table></div>
+</section>
+
+<section id="s2">
+<h2>2. 札幌312投票区の投票率分布</h2>
+<p class="note">投票区の国内投票率（在外選挙人を除く）。投票者数には期日前・不在者投票を含む（札幌市表の注記）。投票区は独立した標本ではない。</p>
+<div class="ctl">
+<label>区 <select id="s2ward"></select></label>
+</div>
+<div id="s2kpi" class="kpi"></div>
+<div id="s2chart"></div>
+<p class="note">単純平均は各投票区の投票率の平均。加重は投票者数の合計÷有権者数の合計。両者は別の値です。</p>
+</section>
+
+<section id="s3">
+<h2>3. 道北6自治体と札幌市の比較</h2>
+<p class="note">人口規模は有権者数で示す（2025年）。年齢構成は、道北6自治体では今回取得していないため比較できない（未検証）。</p>
+<div id="s3chart"></div>
+<div class="tablewrap"><table id="s3table"></table></div>
+</section>
+
+<section id="s4">
+<h2>4. 2022年と2025年の投票率（区の順位は保たれたか）</h2>
+<p class="note">2022年は前回（令和4年参院比例）の投票率。区割りの同一性は未確認。</p>
+<div id="s4chart"></div>
+<p class="note" id="s4note"></p>
+</section>
+
+<section id="s5">
+<h2>5. 高齢者割合と投票率（札幌10区・探索的）</h2>
+<p class="note">高齢者割合：2020年国勢調査の65歳以上人口÷（総数−年齢不詳）。投票率は2025年。標本数は10。</p>
+<div id="s5chart"></div>
+<p class="note" id="s5note"></p>
+</section>
+
+<section id="s6">
+<h2>6. 投票所密度と投票率（札幌10区・探索的）</h2>
+<p class="note">投票所密度：当日投票所数÷有権者数×1000。区の規模と重なりやすい指標です。</p>
+<div id="s6chart"></div>
+<p class="note" id="s6note"></p>
+</section>
+
+<section id="s7">
+<h2>7. 地図（概略の位置）</h2>
+<p class="warn">表示する点は、町字代表点の平均による概略の中心です。投票区の境界・投票所の位置・移動距離は未取得のため表示していません。312投票所の候補座標は、2025年の所在地が未確定のため使用していません。</p>
+<div id="s7chart"></div>
+</section>
+
+<section id="s8">
+<h2>8. 出典・定義・限界・データ</h2>
+<h3 style="font-size:1rem">定義</h3>
+<ul class="note">
+<li>投票率：投票者数÷有権者数（比例代表）。公式表の値と再計算値の一致を確認。</li>
+<li>有権者数：選挙当日の有権者数（国内＋在外）。区の合計が全市と一致。</li>
+<li>前回投票率：令和4年参院比例（公式表の括弧書き）。</li>
+<li>高齢者割合：2020年国勢調査、65歳以上÷（総数−年齢不詳）。</li>
+<li>投票所密度：当日投票所数÷有権者数×1000。当日投票所数は、令和7年版 選挙のあゆみ（p.121）の区別数値。</li>
+</ul>
+<h3 style="font-size:1rem">限界</h3>
+<ul class="note">
+<li>札幌10区は標本数10。道北6自治体は標本数6。重回帰は多重共線性のため不安定（年齢と密度の相関 r=0.82）。</li>
+<li>年齢（2020年）と投票率（2025年）は時点が異なる。</li>
+<li>投票区単位の年齢・交通条件は取得していない。312投票区の分析でアクセスや年齢の効果を示すことはできない。</li>
+<li>期日前投票の投票区への帰属は未確認。</li>
+<li>有意差がないことは「影響がない」を意味しない。相関から因果を断定しない。</li>
+</ul>
+<h3 style="font-size:1rem">検算（CSVの値を再計算して照合）</h3>
+<div id="s8check" class="tablewrap"></div>
+<h3 style="font-size:1rem">ダウンロード（CSV）</h3>
+<ul>
+<li><a href="data/sapporo_wards_2025_2022.csv">札幌10区の表（2025・2022・高齢者割合・投票所密度）</a></li>
+<li><a href="data/sapporo_312_districts_2025.csv">札幌312投票区の表（2025年）</a></li>
+<li><a href="data/hokkaido_towns_vs_sapporo.csv">道北6自治体と札幌市の表</a></li>
+<li><a href="data/stats_summary.csv">相関・回帰の推定値（探索的）</a></li>
+<li><a href="data/geo_centers_approx.csv">地図の概略座標（町字代表点の平均）</a></li>
+<li><a href="data/sources.csv">出典一覧</a></li>
+</ul>
+<p class="note">出典（公式資料）：<a href="https://www.pref.hokkaido.lg.jp/hs/senkyokankeidate/230089.html">北海道選管 2025年参院選 結果</a>／<a href="https://www.city.sapporo.jp/senkan/kekka20250720/sokuhou20250720.html">札幌市選管 2025年参院選 結果</a>／<a href="https://www.city.sapporo.jp/senkan/senkyonoayumi/documents/r7-03-03.pdf">令和7年版 選挙のあゆみ（投票所数）</a>／<a href="https://www.city.sapporo.jp/toukei/tokeisyo/documents/02-14_r3.xls">札幌市統計書（2-14）</a></p>
+</section>
+
+<footer>作成：2026年10月20日。リポジトリ：<a href="https://github.com/keyspring/public-analysis">keyspring/public-analysis</a>。政党や候補への投票を勧めるものではありません。<br><a href="../../">データ分析の記事一覧へ戻る</a></footer>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const NS='http://www.w3.org/2000/svg';
+function parseCSV(t){t=t.replace(/^﻿/,'');const lines=t.trim().split(/\r?\n/);const h=lines[0].split(',');return lines.slice(1).map(l=>{const c=l.split(',');const o={};h.forEach((k,i)=>o[k]=c[i]);return o;});}
+async function load(p){const r=await fetch(p);if(!r.ok) throw new Error(p+' '+r.status);return parseCSV(await r.text());}
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function txt(parent,x,y,s,opt){opt=opt||{};const a=Object.assign({x:x,y:y,'font-size':opt.size||12,fill:opt.fill||'var(--fg)'},opt.attrs||{});const t=el('text',a,parent);t.textContent=String(s);return t;}
+function f2(x){return (+x).toFixed(2);}
+function pear(x,y){const n=x.length;const mx=x.reduce((a,b)=>a+b,0)/n,my=y.reduce((a,b)=>a+b,0)/n;let sxy=0,sx=0,sy=0;for(let i=0;i<n;i++){sxy+=(x[i]-mx)*(y[i]-my);sx+=(x[i]-mx)**2;sy+=(y[i]-my)**2;}return sxy/Math.sqrt(sx*sy);}
+
+let W=[],D=[],T=[],G=[];
+async function init(){
+  try{
+    const r=await Promise.all([load('data/sapporo_wards_2025_2022.csv'),load('data/sapporo_312_districts_2025.csv'),load('data/hokkaido_towns_vs_sapporo.csv'),load('data/geo_centers_approx.csv')]);
+    W=r[0];D=r[1];T=r[2];G=r[3];
+  }catch(e){document.querySelector('main').insertAdjacentHTML('afterbegin','<p class="warn">データの読み込みに失敗しました：'+e.message+'</p>');return;}
+  W.forEach(w=>{w.t25=+w.turnout_2025_pct;w.t22=+w.turnout_2022_pct;w.o65=+w.over65_2020_pct;w.st=+w.stations_per1000_electorate;w.E=+w.electorate_2025;w.V=+w.voters_2025;w.n=+w.station_day_count;});
+  D.forEach(d=>{d.t=+d.turnout_pct;d.E=+d.electorate_domestic;d.V=+d.voters_domestic;});
+  T.forEach(t=>{t.t25=+t.turnout_2025;t.t22=t.turnout_2022?+t.turnout_2022:null;t.E=+t.electorate;});
+  renderS1();renderS2();renderS3();renderS4();renderS5();renderS6();renderS7();renderS8();
+}
+
+function renderS1(){
+  const draw=()=>{
+    const yr=$('s1year').value, sort=$('s1sort').value;
+    let rows=W.map(w=>({name:w.area,v:yr==='2025'?w.t25:w.t22}));
+    if(sort==='val') rows.sort((a,b)=>b.v-a.v); else rows.sort((a,b)=>a.name.localeCompare(b.name,'ja'));
+    const host=$('s1chart'); host.innerHTML=''; const Wd=640,rowH=28,L=90,R=60,top=8;
+    const svg=el('svg',{viewBox:'0 0 '+Wd+' '+(top*2+rows.length*rowH+30)},host);
+    const X=v=>L+(v-40)/(70-40)*(Wd-L-R);
+    for(let v=40;v<=70;v+=5){el('line',{x1:X(v),x2:X(v),y1:top,y2:top+rows.length*rowH,stroke:'var(--line)'},svg);txt(svg,X(v)-8,top+rows.length*rowH+16,v+'%',{size:11,fill:'var(--muted)'});}
+    rows.forEach((r,i)=>{const y=top+i*rowH;txt(svg,6,y+18,r.name);el('rect',{x:L,y:y+5,width:X(r.v)-L,height:rowH-10,fill:'var(--s1)',opacity:.85},svg);txt(svg,X(r.v)+4,y+18,f2(r.v)+'%',{size:12});});
+    $('s1note').textContent=(yr==='2025'?'2025年参院選（比例）':'2022年（前回・令和4年参院比例）')+'。出典：札幌市選管 投票者数調全市集計表（dli102.xls）。軸は40〜70%。';
+    $('s1table').innerHTML='<tr><th>区</th><th>有権者（2025）</th><th>投票率 2025</th><th>投票率 2022</th><th>変化（pt）</th></tr>'+W.map(w=>'<tr><td>'+w.area+'</td><td>'+w.E.toLocaleString()+'</td><td>'+f2(w.t25)+'</td><td>'+f2(w.t22)+'</td><td>'+f2(w.t25-w.t22)+'</td></tr>').join('');
+  };
+  $('s1year').onchange=draw;$('s1sort').onchange=draw;draw();
+}
+
+function renderS2(){
+  const sel=$('s2ward');
+  sel.innerHTML='<option value="all">札幌市 全312投票区</option>'+W.map(w=>'<option value="'+w.area+'">'+w.area+'（'+w.n+'投票区）</option>').join('');
+  const draw=()=>{
+    const ward=sel.value; const ds=ward==='all'?D:D.filter(d=>d.ward===ward);
+    const t=ds.map(d=>d.t); const sorted=t.slice().sort((a,b)=>a-b);
+    const mean=t.reduce((a,b)=>a+b,0)/t.length; const hm=Math.floor(sorted.length/2); const med=sorted.length%2?sorted[hm]:(sorted[hm-1]+sorted[hm])/2;
+    const wE=ds.reduce((a,d)=>a+d.E,0), wV=ds.reduce((a,d)=>a+d.V,0);
+    const sd=Math.sqrt(t.reduce((a,b)=>a+(b-mean)*(b-mean),0)/(t.length-1));
+    $('s2kpi').innerHTML='<div>投票区数<b>'+t.length+'</b></div><div>単純平均<b>'+f2(mean)+'%</b></div><div>加重（V÷E）<b>'+f2(100*wV/wE)+'%</b></div><div>中央値<b>'+f2(med)+'%</b></div><div>標準偏差<b>'+f2(sd)+'</b></div><div>範囲<b>'+f2(sorted[0])+'〜'+f2(sorted[sorted.length-1])+'</b></div>';
+    const host=$('s2chart'); host.innerHTML=''; const Wd=640,Hd=260,L=40,B=40,T0=10; const bins=[];
+    for(let b=40;b<80;b+=2) bins.push({lo:b,hi:b+2,n:0});
+    t.forEach(v=>{const b=bins.find(x=>v>=x.lo&&v<x.hi)||bins[bins.length-1];b.n++;});
+    const maxN=Math.max.apply(null,bins.map(b=>b.n).concat([1]));
+    const svg=el('svg',{viewBox:'0 0 '+Wd+' '+Hd},host);
+    const bw=(Wd-L-10)/bins.length;
+    bins.forEach((b,i)=>{const h=(Hd-B-T0)*b.n/maxN;const x=L+i*bw;el('rect',{x:x+1,y:Hd-B-h,width:bw-2,height:h,fill:'var(--s1)'},svg);if(b.n) txt(svg,x+bw/2-6,Hd-B-h-3,b.n,{size:10});if(i%2===0) txt(svg,x,Hd-B+14,b.lo,{size:10,fill:'var(--muted)'});});
+    txt(svg,L,Hd-6,'投票率（%）、2%刻み。縦軸は投票区数',{size:11,fill:'var(--muted)'});
+  };
+  sel.onchange=draw; draw();
+}
+
+function renderS3(){
+  const all=[{name:'札幌市（全市）',v25:60.82,v22:54.22,E:W.reduce((a,w)=>a+w.E,0)}].concat(T.filter(t=>t.name!=='札幌市').map(t=>({name:t.name,v25:t.t25,v22:t.t22,E:t.E})));
+  const host=$('s3chart'); host.innerHTML=''; const Wd=640,L=130,R=60,rowH=36,top=6; const H=top*2+all.length*rowH+24;
+  const svg=el('svg',{viewBox:'0 0 '+Wd+' '+H},host); const X=v=>L+(v-40)/(90-40)*(Wd-L-R);
+  for(let v=40;v<=90;v+=10){el('line',{x1:X(v),x2:X(v),y1:top,y2:top+all.length*rowH,stroke:'var(--line)'},svg);txt(svg,X(v)-8,H-6,v+'%',{size:11,fill:'var(--muted)'});}
+  all.forEach((r,i)=>{const y=top+i*rowH;txt(svg,6,y+16,r.name,{size:12});el('rect',{x:L,y:y+4,width:Math.max(X(r.v25)-L,1),height:12,fill:'var(--s1)'},svg);txt(svg,X(r.v25)+4,y+14,'2025 '+f2(r.v25),{size:11});if(r.v22!=null){el('rect',{x:L,y:y+18,width:Math.max(X(r.v22)-L,1),height:9,fill:'var(--s2)'},svg);txt(svg,X(r.v22)+4,y+27,'2022 '+f2(r.v22),{size:10,fill:'var(--muted)'});}});
+  $('s3table').innerHTML='<tr><th>自治体</th><th>有権者（2025）</th><th>投票率 2025</th><th>投票率 2022</th><th>変化（pt）</th></tr>'+all.map(r=>'<tr><td>'+r.name+'</td><td>'+r.E.toLocaleString()+'</td><td>'+f2(r.v25)+'</td><td>'+(r.v22==null?'―':f2(r.v22))+'</td><td>'+(r.v22==null?'―':f2(r.v25-r.v22))+'</td></tr>').join('');
+  txt(svg,6,H-2,'青：2025年、橙：2022年（前回）。札幌市全体は有権者加重。',{size:11,fill:'var(--muted)'});
+}
+
+function renderS4(){
+  const host=$('s4chart'); host.innerHTML=''; const Wd=640,H=360,L=60,R=90;
+  const svg=el('svg',{viewBox:'0 0 '+Wd+' '+H},host);
+  const ws=W.slice().sort((a,b)=>b.t25-a.t25);
+  const X0=L,X1=Wd-R; const Y=v=>30+(90-v)/(90-40)*(H-70);
+  for(let v=40;v<=90;v+=10){el('line',{x1:X0,x2:X1,y1:Y(v),y2:Y(v),stroke:'var(--line)'},svg);txt(svg,4,Y(v)+4,v+'%',{size:11,fill:'var(--muted)'});}
+  txt(svg,X0,18,'2022年',{size:12,fill:'var(--muted)'}); txt(svg,X1-40,18,'2025年',{size:12,fill:'var(--muted)'});
+  const pts=ws.map(w=>({n:w.area,a:w.t22,b:w.t25}));
+  pts.forEach(p=>{el('line',{x1:X0+20,y1:Y(p.a),x2:X1-20,y2:Y(p.b),stroke:'var(--s1)','stroke-opacity':.6},svg);txt(svg,X0-2,Y(p.a)+4,p.n,{size:10,attrs:{'text-anchor':'end'}});txt(svg,X1-16,Y(p.b)+4,p.n,{size:10});});
+  const r=pear(pts.map(p=>p.a),pts.map(p=>p.b));
+  const avg=pts.reduce((s,p)=>s+(p.b-p.a),0)/pts.length;
+  $('s4note').textContent='札幌10区：2022年と2025年の投票率の相関 r='+f2(r)+'（n=10）。平均変化は+'+f2(avg)+'ポイント。道北6町（n=6）の相関は、表3の値から計算（r≈0.99）。順位の持続は区割りの同一性を前提としている。';
+}
+
+function scatter(hostId, noteId, xs, ys, labels, xlab, xr, xdec, label){
+  const host=$(hostId); host.innerHTML=''; const Wd=640,Hd=360,L=60,B=50,T0=16,R=20;
+  const svg=el('svg',{viewBox:'0 0 '+Wd+' '+Hd},host);
+  const X=v=>L+(v-xr[0])/(xr[1]-xr[0])*(Wd-L-R); const Y=v=>T0+(Hd-B-T0)*(1-(v-55)/(67-55));
+  for(let v=55;v<=67;v+=2){el('line',{x1:L,x2:Wd-R,y1:Y(v),y2:Y(v),stroke:'var(--line)'},svg);txt(svg,8,Y(v)+4,v+'%',{size:11,fill:'var(--muted)'});}
+  for(let i=0;i<=5;i++){const v=xr[0]+(xr[1]-xr[0])*i/5;txt(svg,X(v)-14,Hd-B+16,v.toFixed(xdec),{size:11,fill:'var(--muted)'});}
+  txt(svg,L,Hd-8,xlab,{size:12,fill:'var(--muted)'}); txt(svg,8,T0+4,'投票率（2025年）',{size:11,fill:'var(--muted)'});
+  const mx=xs.reduce((a,b)=>a+b,0)/xs.length,my=ys.reduce((a,b)=>a+b,0)/ys.length;
+  const sxx=xs.reduce((s,x)=>s+(x-mx)*(x-mx),0);
+  const b=xs.reduce((s,x,i)=>s+(x-mx)*(ys[i]-my),0)/sxx;
+  el('line',{x1:X(xr[0]),y1:Y(my+b*(xr[0]-mx)),x2:X(xr[1]),y2:Y(my+b*(xr[1]-mx)),stroke:'var(--s2)','stroke-dasharray':'5 4'},svg);
+  xs.forEach((x,i)=>{el('circle',{cx:X(x),cy:Y(ys[i]),r:5,fill:'var(--s1)'},svg);txt(svg,X(x)+7,Y(ys[i])-6,labels[i],{size:11});});
+  $(noteId).textContent=label+'：r='+f2(pear(xs,ys))+'（n='+xs.length+'）。破線は単回帰の直線（見やすさのため）。相関は因果を示さない。標本数10のため、この値は不安定。';
+}
+function renderS5(){ scatter('s5chart','s5note', W.map(w=>w.o65), W.map(w=>w.t25), W.map(w=>w.area), '65歳以上割合（%・2020年）', [20,40], 0, '高齢者割合と投票率'); }
+function renderS6(){ scatter('s6chart','s6note', W.map(w=>w.st), W.map(w=>w.t25), W.map(w=>w.area), '投票所密度（当日投票所÷有権者1000人）', [0.14,0.30], 2, '投票所密度と投票率'); }
+
+function renderS7(){
+  const host=$('s7chart'); host.innerHTML=''; const Wd=640,Hd=420;
+  const svg=el('svg',{viewBox:'0 0 '+Wd+' '+Hd},host);
+  const lo=[140.9,142.1],la=[42.9,45.5];
+  const X=v=>40+(v-lo[0])/(lo[1]-lo[0])*(Wd-80); const Y=v=>20+(la[1]-v)/(la[1]-la[0])*(Hd-60);
+  el('rect',{x:0,y:0,width:Wd,height:Hd,fill:'var(--card)'},svg);
+  G.forEach(g=>{const lon=+g.lon,lat=+g.lat;const city=g.kind==='札幌市区';el('circle',{cx:X(lon),cy:Y(lat),r:city?5:7,fill:city?'var(--s1)':'var(--s2)'},svg);txt(svg,X(lon)+8,Y(lat)+4,g.name,{size:12});});
+  txt(svg,12,Hd-10,'青：札幌市10区（概略の中心）　橙：道北6自治体（概略の中心）。位置は概略。',{size:11,fill:'var(--muted)'});
+}
+
+function renderS8(){
+  const sumE=D.reduce((a,d)=>a+d.E,0), sumV=D.reduce((a,d)=>a+d.V,0);
+  const wE=W.reduce((a,w)=>a+w.E,0), wV=W.reduce((a,w)=>a+w.V,0);
+  const checks=[
+    ['312投票区の国内有権者合計（公式: 1,693,854）',sumE,1693854],
+    ['312投票区の国内投票者合計（公式: 1,030,454）',sumV,1030454],
+    ['10区の有権者合計（全市計: 1,694,672）',wE,1694672],
+    ['10区の投票者合計（全市計: 1,030,705）',wV,1030705]
+  ];
+  const rows=checks.map(c=>'<tr><td>'+c[0]+'</td><td>'+c[1].toLocaleString()+'</td><td>'+c[2].toLocaleString()+'</td><td class="'+(c[1]===c[2]?'ok':'ng')+'">'+(c[1]===c[2]?'一致':'要確認')+'</td></tr>').join('');
+  $('s8check').innerHTML='<table><tr><th>項目</th><th>再計算</th><th>公式表</th><th>判定</th></tr>'+rows+'</table>';
+}
+
+init();
+</script>
+</body>
+</html>

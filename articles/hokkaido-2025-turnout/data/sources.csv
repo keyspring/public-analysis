@@ -1,0 +1,7 @@
+﻿source_id,title,url,publisher,used_for
+S01,札幌市選管 投票者数調（比例代表）全市集計表 dli102.xls,https://www.city.sapporo.jp/senkan/kekka20250720/documents/dli102.xls,札幌市選挙管理委員会,2025年参院選（比例）・区別・全市計・前回（括弧）
+S02,札幌市選管 投票区別投票者数調（比例代表）dli10101〜dli10110.xls,https://www.city.sapporo.jp/senkan/kekka20250720/documents/dli10101.xls,札幌市選挙管理委員会,312投票区の国内有権者・投票者
+S03,札幌市 令和7年版 選挙のあゆみ 投票結果に関する調 p.121-122（PDF）,https://www.city.sapporo.jp/senkan/senkyonoayumi/documents/r7-03-03.pdf,札幌市選挙管理委員会,区別の当日投票所数・期日前投票所数（数値のみ照合）
+S04,札幌市統計書 令和3年版 2-14 区・年齢（5歳階級）・男女別人口（令和2年国勢調査）,https://www.city.sapporo.jp/toukei/tokeisyo/documents/02-14_r3.xls,札幌市,65歳以上人口（2020年）
+S05,北海道選管 令和7年参議院議員通常選挙 比例代表 投票結果 ZIP（市区町村別内訳・総括）,https://www.pref.hokkaido.lg.jp/fs/1/1/9/8/0/0/5/0/_/R7%E5%8F%82%E8%AD%B0%E6%AF%94%E4%BE%8B%E4%BB%A3%E8%A1%A8%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C.zip,北海道選挙管理委員会,道北6町・稚内市の2025年・前回値
+S06,デジタル庁 アドレス・ベース・レジストリ（町字代表点・北海道）,https://data.address-br.digital.go.jp/mt_town_pos/pref/mt_town_pos_pref01.csv.zip,デジタル庁,区・町の概略の中心座標（町字代表点の平均）
