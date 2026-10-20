@@ -11,16 +11,102 @@
 @media(max-width:820px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.intro-grid,.split,.method{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.wrap{padding:0 17px}.hero{padding:42px 0}.paper{padding:19px}.barrow{grid-template-columns:96px minmax(0,1fr) 92px;gap:8px}}
 @media(max-width:520px){.stats{gap:9px}.stat{padding:12px}.stat strong{font-size:21px}.hero .lead{font-size:13px}.hero h1{font-size:32px}.grid3{grid-template-columns:1fr}.barrow{grid-template-columns:84px minmax(0,1fr) 82px;gap:7px}.barrow .label,.barrow .num{font-size:11px}.shareline .sharelabel{min-width:96px}.shareline .pct{font-size:12px;min-width:58px}.stackrow{grid-template-columns:60px 1fr 48px;gap:8px}.stackrow .districtName{font-size:11px}.rankrow{grid-template-columns:63px 1fr 61px}.turnrow{grid-template-columns:63px 1fr 63px}.tabs-wrap{margin-top:25px}.section-head h2{font-size:22px}}
 </style>
+
+<style>
+.science-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:0 0 20px}
+.science-stat{background:var(--navy);color:white;padding:18px;border-radius:13px;min-width:0}
+.science-stat .k{display:block;color:#c7dbe0;font-size:12px}
+.science-stat strong{display:block;font-variant-numeric:tabular-nums;font-size:clamp(21px,2.6vw,30px);line-height:1.4;margin:6px 0}
+.science-stat .s{font-size:11px;color:#d1e0e4}
+.science-panel{margin-top:18px}
+.science-panel h3{font-size:19px;margin:0 0 8px}
+.science-panel .lead{font-size:13px;color:var(--muted);margin:4px 0 15px}
+.science-action{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:15px 0}
+.science-action label{font-size:12px;font-weight:750;color:var(--muted)}
+.science-action select{max-width:100%;border:1px solid #bdcfd7;background:white;padding:8px;border-radius:9px;font:inherit;font-size:13px}
+.science-svg{display:block;width:100%;height:auto;min-width:790px}
+.science-svg circle[role="button"]{cursor:pointer}
+.science-svg circle[role="button"]:focus-visible{outline:3px solid #d39023;outline-offset:3px}
+.science-detail{margin:12px 0;padding:12px 15px;border:1px solid #cfe0e1;background:#f3f9f9;border-radius:10px;color:#173d45;font-size:13px;line-height:1.85}
+.science-legend{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.science-legend span{display:inline-flex;gap:5px;align-items:center}
+.science-dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+.science-tile{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:15px 0}
+.science-tile .stat{border:1px solid var(--border);border-radius:10px;padding:12px}
+.science-tile .stat strong{font-size:22px;color:var(--navy)}
+.science-tile .stat small{display:block;font-size:12px;color:var(--muted)}
+.science-table{width:100%;border-collapse:collapse;font-size:13px;min-width:500px}
+.science-table th,.science-table td{text-align:right;border-bottom:1px solid #e2ebef;padding:8px 10px;font-variant-numeric:tabular-nums}
+.science-table th:first-child,.science-table td:first-child{text-align:left}
+.science-table th{background:#f0f5f7;color:#435e6f}
+.science-methods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.science-methods .item{border:1px solid var(--border);border-radius:10px;padding:13px}
+.science-methods .item b{display:block;margin-bottom:4px}
+.science-methods .item p{font-size:12px;color:var(--muted);margin:0}
+@media(max-width:680px){.science-summary,.science-tile,.science-methods{grid-template-columns:1fr}.science-stat{padding:13px}.science-svg{min-width:720px}}
+</style>
 </head>
 <body>
 <div class="mast"><div class="wrap top"><div class="brand"><span class="brandmark">◈</span><span>DATA ATLAS <span style="color:#85d1c9">/</span> LOCAL DEMOCRACY</span></div><a href="#methods" id="sourceJump">SOURCE ↗</a></div></div>
-<header class="hero mast"><div class="wrap"><p class="eyebrow">ELECTION REVIEW • 2026 / YOKOHAMA</p><h1>横浜市長選2026<br><span>数字で読む、18区の選択。</span></h1><p class="lead">7人の候補者に投じられた約140万票。誰が、どの地域で、どれだけ支持されたのか。公式開票結果を動かしながら確かめる、インタラクティブな選挙データ。</p><div class="meta"><span class="pill">投開票：2026.10.18</span><span class="pill">横浜市・18行政区</span><span class="pill">公式確定値</span><span class="pill">データ閲覧無料</span></div><p style="margin:18px 0 0;font-size:14px"><a href="media/#first-speech" style="color:#a3ece6;text-decoration:underline;font-weight:800">▶ tvk第一声・7候補特集を操作して比較する ↗</a>　<a href="media/#early" style="color:#d9e8ea;text-decoration:underline">期日前投票を見る ↗</a></p><p role="note" style="color:#dce9ec;font-size:13px;line-height:1.7;margin:16px 0 0">※ AIを活用した集計・可視化には間違いが含まれる可能性があります。<a href="#sources" style="color:#a4e6e0;text-decoration:underline">公式資料</a>でも数値をご確認ください。</p><div class="stats"><div class="stat"><div class="k">当選者得票</div><strong>552,207<small style="font-size:14px">票</small></strong><em>原沢あつみ氏</em></div><div class="stat"><div class="k">当選者の有効票比</div><strong>39.49<small style="font-size:14px">%</small></strong><em>市選管公表値</em></div><div class="stat"><div class="k">投票率</div><strong>45.56<small style="font-size:14px">%</small></strong><em>前回比 +3.92pt</em></div><div class="stat"><div class="k">有権者数</div><strong>3,108,312</strong><em>18区合計</em></div></div></div></header>
+<header class="hero mast"><div class="wrap"><p class="eyebrow">ELECTION REVIEW • 2026 / YOKOHAMA</p><h1>横浜市長選2026<br><span>数字で読む、18区の選択。</span></h1><p class="lead">7人の候補者に投じられた約140万票。誰が、どの地域で、どれだけ支持されたのか。公式開票結果を動かしながら確かめる、インタラクティブな選挙データ。</p><div class="meta"><span class="pill">投開票：2026.10.18</span><span class="pill">横浜市・18行政区</span><span class="pill">公式確定値</span><span class="pill">データ閲覧無料</span></div><p style="margin:18px 0 0;font-size:14px"><a href="#science" id="scienceJump" style="color:#a3ece6;text-decoration:underline;font-weight:800">▶ 79年の投票率・18区の関係を分析する ↗</a>　<a href="media/#early" style="color:#d9e8ea;text-decoration:underline">期日前投票を見る ↗</a></p><p role="note" style="color:#dce9ec;font-size:13px;line-height:1.7;margin:16px 0 0">※ AIを活用した集計・可視化には間違いが含まれる可能性があります。<a href="#sources" style="color:#a4e6e0;text-decoration:underline">公式資料</a>でも数値をご確認ください。</p><div class="stats"><div class="stat"><div class="k">当選者得票</div><strong>552,207<small style="font-size:14px">票</small></strong><em>原沢あつみ氏</em></div><div class="stat"><div class="k">当選者の有効票比</div><strong>39.49<small style="font-size:14px">%</small></strong><em>市選管公表値</em></div><div class="stat"><div class="k">投票率</div><strong>45.56<small style="font-size:14px">%</small></strong><em>前回比 +3.92pt</em></div><div class="stat"><div class="k">有権者数</div><strong>3,108,312</strong><em>18区合計</em></div></div></div></header>
 <div class="wrap intro"><div class="intro-grid"><article class="paper"><p class="section-kicker">THE KEY QUESTION</p><h2>当選者が得たのは、<br>有効票の<span style="color:var(--teal)">39.49％</span>。</h2><p>原沢氏は18区すべてで最多得票を獲得した。一方、候補者別の支持は地域によって異なる。例えば中谷氏の港北区得票率は24.77%で、市全体の12.85%より高い。</p><p>「候補者別に見た割合」と「有権者全体に占める割合」を混同せず、数字から確認できることと推測を区別する。</p></article><aside class="paper"><p class="section-kicker">READING GUIDE</p><div class="insight"><strong>グラフはすべて操作できる。</strong><p style="font-size:13px;margin-top:8px">得票数と得票率の切り替え、候補者の指定、18区の並べ替え、投票率の前年差の比較が可能。</p></div><p class="fine">政治家への推奨や支持を目的としない。区別集計から個人の投票理由を推測しない。</p></aside></div></div>
-<div class="tabs-wrap"><nav class="wrap tabs" aria-label="分析カテゴリ" role="tablist"><button class="tab" data-tab="overview" role="tab" aria-selected="true">01 全体結果</button><button class="tab" data-tab="wards" role="tab" aria-selected="false">02 18区の票</button><button class="tab" data-tab="turnout" role="tab" aria-selected="false">03 投票率</button><button class="tab" data-tab="methods" role="tab" aria-selected="false">04 出典と読み方</button></nav></div>
+<div class="tabs-wrap"><nav class="wrap tabs" aria-label="分析カテゴリ" role="tablist"><button class="tab" data-tab="overview" role="tab" aria-selected="true">01 全体結果</button><button class="tab" data-tab="wards" role="tab" aria-selected="false">02 18区の票</button><button class="tab" data-tab="turnout" role="tab" aria-selected="false">03 投票率</button><button class="tab" data-tab="science" role="tab" aria-selected="false">04 研究分析</button><button class="tab" data-tab="methods" role="tab" aria-selected="false">05 出典と読み方</button></nav></div>
 <main class="wrap mainarea">
 <section id="view-overview" class="view active" role="tabpanel"><div class="section-head"><div><span class="index">01 / ELECTION RESULTS</span><h2>7候補の確定得票</h2><p>得票数と得票率を切り替えて、差の大きさを確認する。</p></div><span class="tag">開票確定</span></div><div class="split"><article class="paper"><div class="charthead"><h3>候補者別の比較</h3><div class="toggle" aria-label="表示単位"><button id="unitVotes" type="button">得票数</button><button id="unitShare" type="button" class="active">得票率</button></div></div><div id="candidateBars" aria-live="polite"></div><p class="smallnote">候補者の横棒は共通スケールで表示。%は有効票1,398,358票を分母に計算。</p></article><aside class="paper"><h3>同じ552,207票でも「分母」で変わる</h3><p class="fine">原沢氏の得票数を異なる母数で割った場合の比較。</p><div id="denominators"></div><div class="divider"></div><p class="smallnote">有権者に対する割合は、選挙結果の正当性や市民の賛否を直接表すものではない。</p></aside></div><div class="grid3" style="margin-top:18px"><div class="callout"><small>最多得票と次点の差</small><div class="big">321,789票</div><small>原沢氏−福山氏</small></div><div class="callout"><small>候補者数</small><div class="big">7人</div><small>前職1人、新人6人</small></div><div class="callout"><small>投票者総数の内訳（公式結果表3ページ）</small><div class="big">1,416,233票</div><small>有効投票 1,398,358票<br>無効投票 17,864票<br>持ち帰りと思われる票 7票<br>不受理と決定した票 4票</small></div></div></section>
 <section id="view-wards" class="view" role="tabpanel"><div class="section-head"><div><span class="index">02 / GEOGRAPHY OF THE VOTE</span><h2>18区の支持構造</h2><p>候補者を選ぶと、区ごとの得票率・得票数の順位が変わる。</p></div></div><article class="paper"><div class="filterbar"><div class="controls"><label for="candidatePicker">注目する候補</label><select id="candidatePicker"></select><label for="rankMetric">指標</label><select id="rankMetric"><option value="share">得票率（%）</option><option value="votes">得票数（票）</option></select></div><div class="controls"><label for="rankOrder">並び順</label><select id="rankOrder"><option value="desc">多い順</option><option value="asc">少ない順</option></select></div></div><div class="split"><div><h3 id="rankTitle"></h3><div class="districtbars" id="wardRank"></div></div><div><h3>7候補の地域別構成</h3><p class="fine">各区での有効票を100%として表示。帯に触れると候補者の比率が分かる。</p><div id="wardStacks"></div><div class="legend" id="candidateLegend"></div></div></div></article><article class="paper" style="margin-top:18px"><div class="charthead"><div><h3>全18区・7候補の一覧</h3><p class="fine" style="margin:0">横にスクロールして比較。各セルは得票率。各列の最大値を淡い色で強調。</p></div><button type="button" id="downloadCsv" class="button">CSVを保存 ↓</button></div><div id="districtTable" class="table-scroll" style="margin-top:16px"></div></article></section>
 <section id="view-turnout" class="view" role="tabpanel"><div class="section-head"><div><span class="index">03 / VOTER TURNOUT</span><h2>投票率はどう動いたか</h2><p>全市では41.64%から45.56%へ、3.92ポイント上昇した。</p></div></div><div class="grid3"><div class="callout"><small>2025年市長選投票率</small><div class="big">41.64%</div></div><div class="callout"><small>2026年市長選投票率</small><div class="big">45.56%</div></div><div class="callout"><small>全市の前年差</small><div class="big" style="color:var(--teal)">+3.92pt</div></div></div><article class="paper" style="margin-top:18px"><div class="filterbar"><div><h3>区別投票率：前年との差</h3><div class="legend"><span class="legend-item"><i class="dot" style="background:#b0bcca"></i>2025年</span><span class="legend-item"><i class="dot" style="background:#167d83"></i>2026年</span></div></div><div class="controls"><label for="turnOrder">並び替え</label><select id="turnOrder"><option value="delta">上昇幅順</option><option value="turnout">2026年の高さ順</option><option value="district">選管の区順</option></select></div></div><div id="turnBars"></div><p class="smallnote">横棒は0〜55%の共通スケール。上段の灰色が2025年、下段の緑が2026年。</p></article><article class="paper" style="margin-top:18px"><div class="charthead"><div><p class="section-kicker">LONG-TERM</p><h3>横浜市長選の投票率、1947年から2026年</h3><p class="fine">左軸は投票率（線）、右軸は投票者数（棒）。投票者数は公式結果で確認できた年のみ表示。</p></div></div><div id="turnHistory" style="margin-top:12px"></div><p class="smallnote">横軸は選挙の回数で等間隔に配置しており、年の間隔は一定ではない。2009年は衆議院議員総選挙と同日。※は横浜市議会補欠選挙と同時実施（市の表記）。2013年は「選挙のあゆみ」第33集の29.05%を採用し、市の推移表では29.04%と記載されている。1947〜1975年の値は、2008年の市公式冊子「明るい選挙」27ページのグラフを画像で目視照合した。1947〜1975年は統一地方選挙と同日に実施、1978年に統一地方選挙から分離した（同冊子の注記）。1975年から1978年の落差は制度の変化を含むため、有権者の政治離れとは断定できない。</p><script type="application/json" id="turnoutHistory">{"elections": [{"label": "1947", "date": "昭和22年4月5日", "turnout": 55.28, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1951", "date": "昭和26年4月23日", "turnout": 74.56, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1955", "date": "昭和30年4月23日", "turnout": 63.45, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1959", "date": "昭和34年4月23日", "turnout": 68.06, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1963", "date": "昭和38年4月17日", "turnout": 66.46, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1967", "date": "昭和42年4月15日", "turnout": 63.35, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1971", "date": "昭和46年4月11日", "turnout": 63.48, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1975", "date": "昭和50年4月13日", "turnout": 64.53, "voters": null, "mark": "統", "src": "PDF"}, {"label": "1978", "date": "昭和53年4月16日", "turnout": 36.08, "voters": null, "mark": "", "src": "CSV"}, {"label": "1982", "date": "昭和57年4月11日", "turnout": 39.76, "voters": null, "mark": "", "src": "CSV"}, {"label": "1986", "date": "昭和61年4月13日", "turnout": 36.8, "voters": null, "mark": "", "src": "CSV"}, {"label": "1990", "date": "平成2年4月8日", "turnout": 34.32, "voters": null, "mark": "", "src": "CSV"}, {"label": "1994", "date": "平成6年4月3日", "turnout": 32.37, "voters": null, "mark": "", "src": "CSV"}, {"label": "1998", "date": "平成10年4月5日", "turnout": 34.11, "voters": null, "mark": "", "src": "CSV"}, {"label": "2002", "date": "平成14年3月31日", "turnout": 39.35, "voters": null, "mark": "※", "src": "CSV"}, {"label": "2006", "date": "平成18年3月26日", "turnout": 35.3, "voters": null, "mark": "※", "src": "CSV"}, {"label": "2009", "date": "平成21年8月30日", "turnout": 68.76, "voters": null, "mark": "★", "src": "CSV"}, {"label": "2013", "date": "平成25年8月25日", "turnout": 29.05, "voters": null, "mark": "", "src": "CSV"}, {"label": "2017", "date": "平成29年7月30日", "turnout": 37.21, "voters": 1139471, "electors": 3062061, "mark": "", "src": "CSV"}, {"label": "2021", "date": "令和3年8月22日", "turnout": 49.05, "voters": 1522211, "electors": 3103678, "mark": "", "src": "CSV"}, {"label": "2025", "date": "令和7年8月3日", "turnout": 41.64, "voters": 1292363, "electors": 3103689, "mark": "", "src": "PDF"}, {"label": "2026", "date": "令和8年10月18日", "turnout": 45.56, "voters": 1416233, "electors": 3108312, "mark": "", "src": "PDF"}]}</script></article><article class="paper" style="margin-top:18px"><h3>数字の注意点</h3><p>投票率が高い区を特定候補の強い区と同一視することはできない。また、2025年と2026年は候補者構成や選挙の背景が異なるため、投票率の差をひとつの原因に帰すこともできない。</p></article></section>
+
+<section id="view-science" class="view" role="tabpanel" aria-label="データ研究">
+<div class="section-head"><div><span class="index">04 / RESEARCH NOTES</span><h2>投票率は何によって動くのか</h2><p>79年の選挙日程と、18区の3選挙を分けて分析する。</p></div><span class="tag">公式資料で再計算</span></div>
+<div class="science-summary">
+ <div class="science-stat"><span class="k">1947〜1975年・統一地方選と同日（8回平均）</span><strong id="scienceUnifiedMean">計算中</strong><div class="s">同一時代の8選挙の算術平均</div></div>
+ <div class="science-stat"><span class="k">1978〜2026年・2009年除外（13回平均）</span><strong id="scienceOtherMean">計算中</strong><div class="s">2002・2006年の一部区補選との同日実施も含む</div></div>
+ <div class="science-stat"><span class="k">衆院選と同日・2009年</span><strong>68.76%</strong><div class="s">2006年35.30% → 2009年68.76% → 2013年29.05%</div></div>
+</div>
+<article class="paper science-panel">
+ <h3>79年間・22回の市長選を「同日実施の条件」で色分けする</h3>
+ <p class="lead">横軸は実際の西暦年（年の間隔に比例）。点は各回の市長選投票率。色はその日の選挙の実施条件を表す。</p>
+ <div class="science-action"><label for="scienceHistoryFilter">表示する選挙</label><select id="scienceHistoryFilter"><option value="all">全22回</option><option value="unified">統一地方選挙と同日</option><option value="ordinary">通常時期（統一・国政同日なし）</option><option value="local_by">一部区の市議補選と同日</option><option value="national">衆院選と同日</option></select><a href="data/research_turnout_context_1947_2026.csv" download>22回のCSVを取得 ↗</a></div>
+ <div class="science-legend"><span><i class="science-dot" style="background:#167d83"></i>統一地方選同日</span><span><i class="science-dot" style="background:#ba8a30"></i>衆院選同日</span><span><i class="science-dot" style="background:#8c80c6"></i>一部区・市議補選同日</span><span><i class="science-dot" style="background:#667f94"></i>その他</span></div>
+ <div class="table-scroll" style="margin-top:12px"><svg id="scienceHistorySvg" class="science-svg" viewBox="0 0 1060 360" role="img" aria-label="横浜市長選1947〜2026年の投票率、同日実施の条件別散布図"></svg></div>
+ <div class="science-detail" id="scienceHistoryDetail" aria-live="polite">点を選ぶと、その年の投票率・同日選挙の条件・公式出典を表示します。</div>
+ <p class="smallnote">1975→1978年は64.53%から36.08%（−28.45ポイント）。2006→2009年は35.30%から68.76%（＋33.46ポイント）。異なる年代・争点・有権者構成を含む比較であり、この差を同日実施だけの効果とは扱わない。</p>
+</article>
+<article class="paper science-panel">
+ <h3>学術研究と照合する：同じ日に別の選挙があると何が変わるか</h3>
+ <p>石上泰州氏（2006年）は、1957〜2005年の知事選を集計データで分析し、議会選挙や衆参の国政選挙との同日実施時に、知事選の投票率が高まる傾向を報告した。知事選を対象とする研究であり、横浜市長選の因果効果を直接算出したものではない。</p>
+ <p>松本健佑氏（2023年）は別の角度から、2004〜2013年の参院選を差の差法で分析し、地方選と同日の参院選では平均約<strong>6.6ポイント</strong>の投票率上昇を推定した。こちらは<strong>参院選側への効果</strong>である。二つの研究は、複数の選挙が同日に行われる条件を投票率研究に組み込む根拠になる。ただし、横浜の1975→1978年の落差を単独で説明するものではない。</p>
+ <p class="smallnote">研究原典：<a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.14854/jaes1986.21.125">石上「知事選挙の投票率」（『選挙研究』2006年）↗</a> ／ <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.4157/grj.96.174">松本「国政・地方選挙における投票行動の差異」（『地理学評論』2023年）↗</a>。対象選挙、研究期間、分析方法は異なる。</p>
+</article>
+<article class="paper science-panel">
+ <h3>市全体は上下しても、区ごとの高低は残るのか</h3>
+ <p class="lead">2021年・2025年・2026年の横浜市選管公式投票率を18区で照合。区ごとの2時点の相関を計算する（単位：％）。</p>
+ <div class="science-tile"><div class="stat"><small>2021→2025年</small><strong>18区すべて低下</strong><small>全市49.05% → 41.64%</small></div><div class="stat"><small>2025→2026年</small><strong>18区すべて上昇</strong><small>全市41.64% → 45.56%。それでも2021年より全区で低い</small></div></div>
+ <div class="science-action"><label for="sciencePair">比較する2回</label><select id="sciencePair"><option value="2025,2026">2025 → 2026</option><option value="2021,2025">2021 → 2025</option><option value="2021,2026">2021 → 2026</option></select><span id="scienceCorr" style="font-weight:800;font-size:13px"></span><a href="data/research_ward_turnout_2021_2026.csv" download>18区・3回のCSV ↗</a></div>
+ <div class="table-scroll"><svg id="scienceWardSvg" class="science-svg" viewBox="0 0 880 430" role="img" aria-label="横浜18区、選択した2選挙の区別投票率の散布図"></svg></div>
+ <div class="science-detail" id="scienceWardDetail" aria-live="polite">点を選ぶと、その区の2021年・2025年・2026年の投票率と変化幅が表示されます。</div>
+ <details><summary>18区の数値表を開く</summary><div class="table-scroll"><table class="science-table" id="scienceWardTable"></table></div></details>
+ <p class="smallnote">相関係数は「18行政区それぞれを1件とした記述統計」。人口による重み付けなし。地域集計の相関から個々の有権者の行動や原因を推定することはできない。</p>
+</article>
+<article class="paper science-panel">
+ <h3>メディアの「測れたもの」と「まだ測っていないもの」を分離する</h3>
+ <div class="science-methods" id="scienceMediaMethods">
+ <div class="item"><b>公式動画・討論会</b><p>tvk第一声7本、共通討論会2本。再生数は観測日時付きで保存。候補者本人の発言秒数は未取得。</p></div>
+ <div class="item"><b>テレビ</b><p>放送内容索引に掲載された10月4〜5日の番組枠9件を記録。候補者別の出演秒数と全局の放送総量は未測定。</p></div>
+ <div class="item"><b>新聞・Web</b><p>選んだ記事の記録11行。全文記事データベースを網羅した総掲載件数ではない。</p></div>
+ <div class="item"><b>街頭・ラジオ・SNS</b><p>街頭記録48行は予定と実施報告が混在。ラジオ候補別出演件数、SNSの到達人数は未取得。</p></div>
+ </div>
+ <p class="smallnote" style="margin-top:16px">数字の「0」は活動がなかったことを示すとは限らない。掲載記録、総実施件数、放送秒数、閲覧回数、ユニーク視聴者は別の指標。</p>
+ <p><a href="media/#first-speech">第一声6本の比較 ↗</a>　／　<a href="media/#tvk-features">tvk候補者特集7本 ↗</a>　／　<a href="media/#street">街頭活動タイムライン ↗</a>　／　<a href="media/#gaps">未取得データの一覧 ↗</a></p>
+</article>
+<article class="paper science-panel" id="scienceSources"><h3>調査条件と一次資料</h3>
+ <p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/data/senkyonoayumi/senkyonoayumi33-od.html" target="_blank" rel="noopener noreferrer">横浜市選管「選挙のあゆみ 第33集」歴代投票率CSV ↗</a></p>
+ <p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/pr/suisin.files/0054_20181010.pdf#page=26" target="_blank" rel="noopener noreferrer">横浜市『明るい選挙』2008年11月号・戦後初期の投票率 ↗</a></p>
+ <p><a href="https://www.city.yokohama.lg.jp/kohoku/kusei/shikai-senkyo/touhyouritsu.files/kekka_r7shicho_tou.pdf" target="_blank" rel="noopener noreferrer">2025年市長選公式表（区別2021年投票率を含む） ↗</a></p>
+ <p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.html" target="_blank" rel="noopener noreferrer">2026年市長選公式結果 ↗</a></p>
+ <p class="smallnote">投票率は単位％、差はポイント。表示値は小数第2位。研究対象の22回は全期間を網羅するが、1947〜1975年と1978年以降には制度・都市人口・投票環境の変化がある。比較は記述統計を中心とし因果推論を主張しない。</p>
+</article>
+</section>
 <section id="view-methods" class="view" role="tabpanel"><div class="section-head"><div><span class="index">04 / SOURCES & LIMITS</span><h2>調査方法・解釈の限界</h2><p>「事実」と「考察」を分けて読むために。</p></div></div><div class="method"><article class="paper"><h3>何を確認できるか</h3><ul><li>全市・18区別の得票数と候補者別得票率</li><li>各区の有権者数・2026年投票率と前回投票率</li><li>候補者同士の差、地域的な偏り</li></ul><div class="note">このサイトは集計結果の可視化であり、個人の政治的意図、支持理由、候補者の能力を点数化するものではありません。</div></article><article class="paper"><h3>何を断定できないか</h3><ul><li>候補者間で票がどう移動したか</li><li>政党組織・SNS・街頭活動が生んだ票の正確な割合</li><li>前回から投票率が変化した原因</li><li>ある候補者の支持者が別候補を選んだかどうか</li></ul><p>同じ区の集計に似た傾向があっても、有権者個人の行動とは限りません（生態学的誤謬）。</p></article></div><article class="paper" id="sources" style="margin-top:18px"><h3>一次資料と報道資料</h3><p><strong>一次資料</strong>：横浜市選挙管理委員会「令和８年10月18日執行 横浜市長選挙結果表」（投票速報集計表、候補者別得票数）。</p><p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.files/R08_shicho_kekka.pdf" target="_blank" rel="noopener noreferrer">選挙結果の公式PDFを開く ↗</a></p><p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.html" target="_blank" rel="noopener noreferrer">横浜市・市長選挙公式ページ ↗</a></p><p><strong>歴代投票率の一次資料</strong>：横浜市選挙管理委員会「選挙のあゆみ 第33集」（1978〜2021年の市長選投票率）および横浜市公式『明るい選挙』2008年11月号・紙面27ページ（1947〜1975年）。</p><p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/data/senkyonoayumi/senkyonoayumi33-od.html" target="_blank" rel="noopener noreferrer">「選挙のあゆみ 第33集」公式データ ↗</a></p><p><a href="https://www.city.yokohama.lg.jp/city-info/senkyo/pr/suisin.files/0054_20181010.pdf#page=26" target="_blank" rel="noopener noreferrer">『明るい選挙』公式PDF・歴代投票率 ↗</a></p><p><strong>参考報道</strong>：共同通信（10月18日）出口調査。標本2,246人であり、開票確定値とは異なる。</p><p><a href="https://news.livedoor.com/article/detail/32597719/" target="_blank" rel="noopener noreferrer">共同通信の出口調査報道 ↗</a></p><div class="divider"></div><p class="legal">集計値は2026年10月19日に公式確定表を確認。候補者名は公式資料に合わせ、ひらがな表記を使用。割合は原則として全票数から再計算し小数第2位に丸めるため、丸め誤差が生じる場合があります。すべてのデータはクライアント側で計算され、閲覧時に情報を外部送信しません。</p></article><article class="paper" style="margin-top:18px"><h3>選挙戦メディア分析の出典と欠測</h3><p>テレビ・新聞・動画・街頭活動の出典、調査時点、計測単位、欠測理由は <a href="media/">選挙戦メディア分析</a> で確認できます。</p></article></section>
 </main>
 <footer class="footer"><div class="wrap"><div class="brand"><span class="brandmark">◈</span><span>DATA ATLAS / 2026</span></div><p>横浜市長選2026　オープンなデータから地域差を読む。出典：横浜市選挙管理委員会。</p><p>転載・引用の際は原典の横浜市選管資料を確認してください。特定政党・候補者を支持または推薦するものではありません。</p></div></footer>
@@ -42,7 +128,76 @@ function renderTurnout(){let rows=[...D],type=$('#turnOrder').value;if(type==='d
 function renderHistory(){const E=JSON.parse($('#turnoutHistory').textContent).elections;const W=900,Hh=380,L=62,R=64,T=28,B=72,pw=W-L-R,ph=Hh-T-B,n=E.length;const xs=E.map((_,i)=>L+i*pw/(n-1));const yT=t=>T+ph*(1-t/80),yV=v=>T+ph*(1-v/1600000);let g='';for(let k=0;k<=4;k++){const y=T+ph*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="#e3eaee"/><text x="${L-8}" y="${y+4}" text-anchor="end" font-size="11" fill="#5b6b7b">${80-k*20}%</text><text x="${W-R+8}" y="${y+4}" font-size="11" fill="#5b6b7b">${160-k*40}万人</text>`;}const i75=E.findIndex(d=>d.label==='1975'),i78=E.findIndex(d=>d.label==='1978');if(i75>=0&&i78>=0){const xm=(xs[i75]+xs[i78])/2;g+=`<line x1="${xm}" x2="${xm}" y1="${T}" y2="${T+ph}" stroke="#9aa8b5" stroke-dasharray="4 4"/><text x="${xm}" y="${T-10}" text-anchor="middle" font-size="11" fill="#5b6b7b">1975年→1978年：統一地方選挙から単独選挙へ</text>`;}E.forEach((d,i)=>{if(d.voters){const y=yV(d.voters);g+=`<rect x="${xs[i]-12}" y="${y}" width="24" height="${T+ph-y}" fill="#cfe6e4"><title>${d.label}年 投票者 ${fmt(d.voters)}人</title></rect>`;}});g+=`<path d="${E.map((d,i)=>(i?'L':'M')+xs[i]+','+yT(d.turnout)).join('')}" fill="none" stroke="#167d83" stroke-width="2.5"/>`;E.forEach((d,i)=>{g+=`<circle cx="${xs[i]}" cy="${yT(d.turnout)}" r="4" fill="#167d83"><title>${d.label}年（${esc(d.date)}）投票率 ${pct(d.turnout)}</title></circle><text x="${xs[i]}" y="${yT(d.turnout)-9}" text-anchor="middle" font-size="10" font-weight="700" fill="#17202e">${d.turnout.toFixed(2)}</text><text x="${xs[i]}" y="${T+ph+18}" text-anchor="middle" font-size="11" fill="#17202e">${d.label}</text>${d.mark?`<text x="${xs[i]}" y="${T+ph+34}" text-anchor="middle" font-size="11" fill="#5b6b7b">${d.mark}</text>`:''}`;});$('#turnHistory').innerHTML=`<div class="table-scroll"><svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="横浜市長選の投票率と投票者数の推移（1947年から2026年）" style="min-width:760px;width:100%;display:block">${g}</svg></div><div class="legend"><span class="legend-item"><i class="dot" style="background:#167d83"></i>投票率（左軸・%）</span><span class="legend-item"><i class="dot" style="background:#cfe6e4"></i>投票者数（右軸・万人、確認できた年のみ）</span><span class="legend-item">統：統一地方選挙と同日　※：市議会補欠選挙と同時　★：衆議院議員総選挙と同日</span></div>`;}
 function csvExport(){const head=['区','有権者数','投票率2026','投票率2025','有効票数',...C.map(c=>c.name+' 得票')];const rows=D.map(d=>[d.name+'区',d.electors,d.turnout,d.previous,d.valid,...d.votes]);const csv='\uFEFF'+[head,...rows].map(r=>r.join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='yokohama_2026_18wards_votes.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 function show(tab){document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id==='view-'+tab));history.replaceState(null,'','#'+tab);}
-$('#candidatePicker').innerHTML=C.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');$('#candidatePicker').value='nakatani';$('#candidateLegend').innerHTML=C.map(c=>`<span class="legend-item"><i class="dot" style="background:${c.color}"></i>${esc(c.name)}</span>`).join('');$('#unitVotes').addEventListener('click',()=>{unit='votes';renderOverview()});$('#unitShare').addEventListener('click',()=>{unit='share';renderOverview()});['candidatePicker','rankMetric','rankOrder'].forEach(id=>$('#'+id).addEventListener('change',renderWards));$('#turnOrder').addEventListener('change',renderTurnout);$('#downloadCsv').addEventListener('click',csvExport);$('#sourceJump').addEventListener('click',e=>{e.preventDefault();show('methods');document.querySelector('.tabs-wrap').scrollIntoView({behavior:'smooth'});});document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));renderOverview();renderWards();renderTurnout();renderHistory();let initial=location.hash.replace('#','');if(['overview','wards','turnout','methods'].includes(initial))show(initial);
+$('#candidatePicker').innerHTML=C.map(c=>`<option value="${c.id}">${esc(c.name)}</option>`).join('');$('#candidatePicker').value='nakatani';$('#candidateLegend').innerHTML=C.map(c=>`<span class="legend-item"><i class="dot" style="background:${c.color}"></i>${esc(c.name)}</span>`).join('');$('#unitVotes').addEventListener('click',()=>{unit='votes';renderOverview()});$('#unitShare').addEventListener('click',()=>{unit='share';renderOverview()});['candidatePicker','rankMetric','rankOrder'].forEach(id=>$('#'+id).addEventListener('change',renderWards));$('#turnOrder').addEventListener('change',renderTurnout);$('#downloadCsv').addEventListener('click',csvExport);$('#sourceJump').addEventListener('click',e=>{e.preventDefault();show('methods');document.querySelector('.tabs-wrap').scrollIntoView({behavior:'smooth'});});document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>show(b.dataset.tab)));renderOverview();renderWards();renderTurnout();renderHistory();let initial=location.hash.replace('#','');if(['overview','wards','turnout','science','methods'].includes(initial))show(initial);
+})();
+</script>
+
+<script>
+(function(){
+'use strict';
+const get=id=>document.getElementById(id);
+const his=JSON.parse(get('turnoutHistory').textContent).elections.map(v=>Object.assign({},v,{year:Number(v.label)}));
+const raw=JSON.parse(get('electionData').textContent);
+const y2021={"鶴見":44.18,"神奈川":48.17,"西":50.69,"中":48.42,"南":46.37,"港南":51.43,"保土ケ谷":48.31,"旭":48.44,"磯子":50.17,"金沢":52.05,"港北":49.38,"緑":48.45,"青葉":50.67,"都筑":50.02,"戸塚":50.23,"栄":52.22,"泉":49.22,"瀬谷":45.7};
+const wds=raw.districts.map(d=>({name:d.name,y2021:y2021[d.name],y2025:d.previous,y2026:d.turnout}));
+const SVGNS='http://www.w3.org/2000/svg';
+const color={unified:'#167d83',national:'#ba8a30',local_by:'#8c80c6',ordinary:'#667f94'};
+const ctxText={unified:'統一地方選挙と同日',national:'衆議院議員総選挙と同日',local_by:'一部区の市議会議員補選と同日',ordinary:'統一地方選挙・衆院選との同日実施ではない'};
+const dates={early:'https://www.city.yokohama.lg.jp/city-info/senkyo/pr/suisin.files/0054_20181010.pdf',mid:'https://www.city.yokohama.lg.jp/city-info/senkyo/data/senkyonoayumi/senkyonoayumi33-od.html',late:'https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.html'};
+function context(d){return d.year<=1975?'unified':d.year===2009?'national':(d.year===2002||d.year===2006)?'local_by':'ordinary'}
+function source(d){return d.year<=1975?dates.early:d.year<=2021?dates.mid:d.year===2025?'https://www.city.yokohama.lg.jp/kohoku/kusei/shikai-senkyo/touhyouritsu.files/kekka_r7shicho_tou.pdf':dates.late}
+function fmt(v){return Number(v).toFixed(2)}
+function mean(arr){return arr.reduce((sum,a)=>sum+a.turnout,0)/arr.length}
+function make(tag,attrs,parent,content){const el=document.createElementNS(SVGNS,tag);Object.entries(attrs||{}).forEach(([k,v])=>el.setAttribute(k,String(v)));if(content!==undefined)el.textContent=content;if(parent)parent.appendChild(el);return el}
+function clear(svg){while(svg.firstChild)svg.removeChild(svg.firstChild)}
+function text(svg,x,y,val,attrs){return make('text',Object.assign({x:x,y:y,fill:'#526b7a','font-size':12},attrs||{}),svg,val)}
+function interact(node,cb){node.setAttribute('tabindex','0');node.setAttribute('role','button');node.addEventListener('click',cb);node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();cb()}})}
+const unified=his.filter(d=>context(d)==='unified');
+const independent=his.filter(d=>d.year>=1978&&context(d)!=='national');
+get('scienceUnifiedMean').textContent=fmt(mean(unified))+'%';
+get('scienceOtherMean').textContent=fmt(mean(independent))+'%';
+function renderHistory(){
+  const filter=get('scienceHistoryFilter').value,svg=get('scienceHistorySvg');clear(svg);
+  const left=66,right=1020,top=33,bottom=306,ymin=20,ymax=80;
+  const x=y=>left+(y-1947)/(2026-1947)*(right-left);
+  const y=v=>bottom-(v-ymin)/(ymax-ymin)*(bottom-top);
+  [20,30,40,50,60,70,80].forEach(t=>{make('line',{x1:left,x2:right,y1:y(t),y2:y(t),stroke:'#dfe7ec','stroke-width':1},svg);text(svg,left-11,y(t)+4,t+'%',{'text-anchor':'end'})});
+  [1947,1960,1975,1978,1990,2000,2009,2013,2026].forEach(t=>{make('line',{x1:x(t),x2:x(t),y1:top,y2:bottom,stroke:'#e8edf0'},svg);text(svg,x(t),bottom+25,String(t),{'text-anchor':'middle','font-size':11})});
+  const mark=his.filter(d=>filter==='all'||context(d)===filter);
+  if(filter==='all')make('polyline',{points:his.map(d=>x(d.year)+','+y(d.turnout)).join(' '),stroke:'#a7b7c1','stroke-width':1.2,fill:'none'},svg);
+  mark.forEach(d=>{
+    const col=color[context(d)],circle=make('circle',{cx:x(d.year),cy:y(d.turnout),r:6,fill:col,stroke:'#fff','stroke-width':2,'aria-label':d.year+'年 '+fmt(d.turnout)+'パーセント'},svg);
+    make('title',{},circle,d.year+'年：'+fmt(d.turnout)+'％、'+ctxText[context(d)]);
+    interact(circle,()=>{const t=get('scienceHistoryDetail');t.textContent=d.year+'年（'+d.date+'） 投票率 '+fmt(d.turnout)+'％。'+ctxText[context(d)]+'。 ';const a=document.createElement('a');a.href=source(d);a.target='_blank';a.rel='noopener noreferrer';a.textContent='公式出典 ↗';t.appendChild(a)});
+  });
+  if(filter==='all'){const points=[1975,1978,2009,2013,2026];points.forEach(k=>{const d=his.find(x=>x.year===k);text(svg,x(k),y(d.turnout)-12,fmt(d.turnout)+'%',{'text-anchor':'middle','font-size':12,'font-weight':750,fill:'#21374b'})})}
+}
+function pearson(a,b){const n=a.length,ax=a.reduce((s,v)=>s+v,0)/n,bx=b.reduce((s,v)=>s+v,0)/n;let xy=0,xx=0,yy=0;for(let i=0;i<n;i++){xy+=(a[i]-ax)*(b[i]-bx);xx+=(a[i]-ax)**2;yy+=(b[i]-bx)**2}return xy/Math.sqrt(xx*yy)}
+function renderWards(){
+ const pair=get('sciencePair').value.split(','),f='y'+pair[0],t='y'+pair[1], svg=get('scienceWardSvg');clear(svg);
+ const left=76,right=784,top=34,bottom=369,min=25,max=55;
+ const x=v=>left+(v-min)/(max-min)*(right-left), y=v=>bottom-(v-min)/(max-min)*(bottom-top);
+ [25,30,35,40,45,50,55].forEach(k=>{make('line',{x1:x(k),x2:x(k),y1:top,y2:bottom,stroke:'#ebf0f3'},svg);make('line',{x1:left,x2:right,y1:y(k),y2:y(k),stroke:'#ebf0f3'},svg);text(svg,x(k),bottom+21,k+'%',{'text-anchor':'middle','font-size':11});text(svg,left-10,y(k)+4,k+'%',{'text-anchor':'end','font-size':11})});
+ make('line',{x1:x(min),y1:y(min),x2:x(max),y2:y(max),stroke:'#a1abb4','stroke-dasharray':'5 5','stroke-width':2},svg);
+ text(svg,(left+right)/2,415,pair[0]+'年の区別投票率',{'text-anchor':'middle',fill:'#273d4b','font-size':14});
+ const yr=text(svg,16,(top+bottom)/2,pair[1]+'年',{'text-anchor':'middle',fill:'#273d4b','font-size':14});yr.setAttribute('transform','rotate(-90 16 '+((top+bottom)/2)+')');
+ const ax=wds.map(d=>d[f]),bx=wds.map(d=>d[t]),r=pearson(ax,bx);
+ get('scienceCorr').textContent='18区の相関 r='+r.toFixed(3);
+ wds.forEach(d=>{
+  const circ=make('circle',{cx:x(d[f]),cy:y(d[t]),r:6.5,fill:'#167d83',stroke:'#fff','stroke-width':1.8,'aria-label':d.name+'区 '+pair[0]+'年 '+fmt(d[f])+'パーセント '+pair[1]+'年 '+fmt(d[t])+'パーセント'},svg);
+  make('title',{},circ,d.name+'区：'+fmt(d[f])+'％ → '+fmt(d[t])+'％');
+  interact(circ,()=>{get('scienceWardDetail').textContent=d.name+'区｜2021年 '+fmt(d.y2021)+'％、2025年 '+fmt(d.y2025)+'％、2026年 '+fmt(d.y2026)+'％。 '+pair[0]+'→'+pair[1]+'年：'+(d[t]-d[f]>0?'+':'')+fmt(d[t]-d[f])+'ポイント。'});
+ });
+}
+const table=get('scienceWardTable');
+function initWardTable(){
+ const header=document.createElement('thead');const tr=document.createElement('tr');['区','2021年','2025年','2026年','21→25年','25→26年'].forEach(h=>{const th=document.createElement('th');th.textContent=h;tr.appendChild(th)});header.appendChild(tr);table.appendChild(header);
+ const body=document.createElement('tbody');wds.forEach(d=>{const row=document.createElement('tr');[d.name+'区',fmt(d.y2021)+'%',fmt(d.y2025)+'%',fmt(d.y2026)+'%',(d.y2025-d.y2021>0?'+':'')+fmt(d.y2025-d.y2021)+'pt', '+'+fmt(d.y2026-d.y2025)+'pt'].forEach(s=>{const td=document.createElement('td');td.textContent=s;row.appendChild(td)});body.appendChild(row)});table.appendChild(body);
+}
+get('scienceHistoryFilter').addEventListener('change',renderHistory);
+get('sciencePair').addEventListener('change',renderWards);
+const jump=get('scienceJump');if(jump)jump.addEventListener('click',e=>{e.preventDefault();const tab=document.querySelector('[data-tab="science"]');if(tab){tab.click();document.querySelector('.tabs-wrap').scrollIntoView({behavior:'smooth'})}});
+initWardTable();renderHistory();renderWards();
 })();
 </script>
 </body>
