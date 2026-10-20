@@ -10,3 +10,7 @@ T008,2026-10-04,23:55,00:55,日本テレビ,Going! NEWS,election_news,S027,all7_
 T009,2026-10-05,03:45,04:30,TBS,TBS NEWS,election_news,S027,all7_or_several,,番組枠全体の時間を候補の露出秒数・出演時間に換算しない。ニュース本文で各人を扱う長さは不明
 T010,2026-10-05,18:10,19:00,NHK総合,首都圏ネットワーク,election_news,S027,all7_or_several,,番組枠全体の時間を候補の露出秒数・出演時間に換算しない。ニュース本文で各人を扱う長さは不明
 T011,2026-10-18,20:00,20:30,tvk,横浜市長選出口調査速報,post_vote_reporting,S013,all7_or_several,,番組枠全体の時間を候補の露出秒数・出演時間に換算しない。ニュース本文で各人を扱う長さは不明
+T012,2026-10-13,21:30,21:55,tvk,NewsLink 候補者特集,candidate_feature,S045,fujikawa;yamanaka,,25分は番組枠全体の時間であり候補者別出演時間とは扱わない
+T013,2026-10-14,21:30,21:55,tvk,NewsLink 候補者特集,candidate_feature,S046,nakatani;harasawa,,25分は番組枠全体の時間であり候補者別出演時間とは扱わない
+T014,2026-10-15,21:30,21:55,tvk,NewsLink 候補者特集,candidate_feature,S047,fukuyama;yamamoto;asaka,,25分は番組枠全体の時間であり候補者別出演時間とは扱わない
+T015,2026-10-16,21:30,21:55,tvk,NewsLink 横浜市長選争点解説,election_issue_explainer,S048,not_identified,,25分は番組枠全体の時間であり候補者別出演時間とは扱わない
