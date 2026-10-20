@@ -60,8 +60,8 @@
 <div class="section-head"><div><span class="index">04 / RESEARCH NOTES</span><h2>投票率は何によって動くのか</h2><p>79年の選挙日程と、18区の3選挙を分けて分析する。</p></div><span class="tag">公式資料で再計算</span></div>
 <div class="science-summary">
  <div class="science-stat"><span class="k">1947〜1975年・統一地方選と同日（8回平均）</span><strong id="scienceUnifiedMean">計算中</strong><div class="s">同一時代の8選挙の算術平均</div></div>
- <div class="science-stat"><span class="k">1978〜2026年・2009年除外（13回平均）</span><strong id="scienceOtherMean">計算中</strong><div class="s">2002・2006年の一部区補選との同日実施も含む</div></div>
- <div class="science-stat"><span class="k">衆院選と同日・2009年</span><strong>68.76%</strong><div class="s">2006年35.30% → 2009年68.76% → 2013年29.05%</div></div>
+ <div class="science-stat"><span class="k">1978〜2026年・2009年除外（13回平均）</span><strong id="scienceOtherMean">計算中</strong><div class="s">2002・2006・2017・2025年の一部区補選との同日実施も含む</div></div>
+ <div class="science-stat"><span class="k">衆院選と同日・2009年</span><strong>68.76%</strong><div class="s">衆院選に加えて一部区の市議補選も同日。前後は2006年35.30%、2013年29.05%</div></div>
 </div>
 <article class="paper science-panel">
  <h3>79年間・22回の市長選を「同日実施の条件」で色分けする</h3>
@@ -92,7 +92,7 @@
  <h3>メディアの「測れたもの」と「まだ測っていないもの」を分離する</h3>
  <div class="science-methods" id="scienceMediaMethods">
  <div class="item"><b>公式動画・討論会</b><p>tvk第一声7本、共通討論会2本。再生数は観測日時付きで保存。候補者本人の発言秒数は未取得。</p></div>
- <div class="item"><b>テレビ</b><p>放送内容索引に掲載された10月4〜5日の番組枠9件を記録。候補者別の出演秒数と全局の放送総量は未測定。</p></div>
+ <div class="item"><b>テレビ</b><p>10月4〜5日中心の9件と、tvk『NewsLink』10月13〜16日の4件で、選挙期間中の番組枠計13件を確認。前後各1件も別枠で保存。全局・全期間の放送総量と候補別出演秒数は未測定。</p></div>
  <div class="item"><b>新聞・Web</b><p>選んだ記事の記録11行。全文記事データベースを網羅した総掲載件数ではない。</p></div>
  <div class="item"><b>街頭・ラジオ・SNS</b><p>街頭記録48行は予定と実施報告が混在。ラジオ候補別出演件数、SNSの到達人数は未取得。</p></div>
  </div>
@@ -142,9 +142,9 @@ const y2021={"鶴見":44.18,"神奈川":48.17,"西":50.69,"中":48.42,"南":46.3
 const wds=raw.districts.map(d=>({name:d.name,y2021:y2021[d.name],y2025:d.previous,y2026:d.turnout}));
 const SVGNS='http://www.w3.org/2000/svg';
 const color={unified:'#167d83',national:'#ba8a30',local_by:'#8c80c6',ordinary:'#667f94'};
-const ctxText={unified:'統一地方選挙と同日',national:'衆議院議員総選挙と同日',local_by:'一部区の市議会議員補選と同日',ordinary:'統一地方選挙・衆院選との同日実施ではない'};
+const ctxText={unified:'統一地方選挙と同日',national:'衆院総選挙と同日（一部区の市議補選も）',local_by:'一部区の市議会議員補選と同日',ordinary:'確認された大規模な同日選挙はなし'};
 const dates={early:'https://www.city.yokohama.lg.jp/city-info/senkyo/pr/suisin.files/0054_20181010.pdf',mid:'https://www.city.yokohama.lg.jp/city-info/senkyo/data/senkyonoayumi/senkyonoayumi33-od.html',late:'https://www.city.yokohama.lg.jp/city-info/senkyo/data/mayor/20261018_shicho.html'};
-function context(d){return d.year<=1975?'unified':d.year===2009?'national':(d.year===2002||d.year===2006)?'local_by':'ordinary'}
+function context(d){return d.year<=1975?'unified':d.year===2009?'national':([2002,2006,2017,2025].includes(d.year))?'local_by':'ordinary'}
 function source(d){return d.year<=1975?dates.early:d.year<=2021?dates.mid:d.year===2025?'https://www.city.yokohama.lg.jp/kohoku/kusei/shikai-senkyo/touhyouritsu.files/kekka_r7shicho_tou.pdf':dates.late}
 function fmt(v){return Number(v).toFixed(2)}
 function mean(arr){return arr.reduce((sum,a)=>sum+a.turnout,0)/arr.length}
