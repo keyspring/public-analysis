@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>人口の少ない地域ほど投票率は高いのか？｜全国・地理と投票率</title>
+<title>人がまばらな地域ほど投票率は高いのか？｜全国・地理と投票率</title>
 <style>
 :root{--bg:#fff;--fg:#1d2330;--mut:#5b6474;--line:#d7dce5;--card:#f5f7fb;--blue:#2d6cdf;--green:#1f7a3d;--orange:#c25a00;--grey:#9aa5b8;--warnbg:#fff4e5}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14171d;--fg:#e8ebf1;--mut:#a4adbb;--line:#2e3542;--card:#1c212b;--blue:#7ba6ff;--green:#7fd29a;--orange:#ffb36b;--grey:#6b7485;--warnbg:#3a2a14}}
@@ -38,8 +38,8 @@ circle.pt:focus{stroke:var(--fg);stroke-width:2}
 <body>
 <main>
 
-<h1>人口の少ない地域ほど、投票率は高いのか？</h1>
-<p class="lead">参院選（2025年）の比例代表で、人口密度と投票率の関係を調べました。結論は「全国では関係がほとんどないが、一部の地域では低密度の自治体ほど投票率が高い傾向がある」です。</p>
+<h1>人がまばらな地域ほど、投票率は高いのか？</h1>
+<p class="lead">参院選（2025年）の比例代表で、人口密度（1平方キロメートルあたりの人数）と投票率の関係を調べました。全国では関係はほとんど見られませんでした。一部の地域では、人がまばらな自治体ほど投票率が高い傾向がありました。</p>
 
 <div class="card">
 <p class="big">全国47都道府県：人口密度と投票率は、ほぼ無関係（r≈+0.07）</p>
@@ -65,12 +65,12 @@ circle.pt:focus{stroke:var(--fg);stroke-width:2}
 <p class="sub"><b>点の読み方</b>：1つの点が1自治体です。右に行くほど人口密度が高く（都市的）、上に行くほど投票率が高いことを示します。横軸は、人口密度を対数（1・10・100…と等間隔）で表示しています。</p>
 <p id="pref104Stat" class="sub"></p>
 <details><summary>104自治体の表（グラフの代わりに読む場合）</summary><div id="prefTable" class="tablewrap"></div></details>
-<p class="src">出典：県選管の比例代表投票結果（国内＋在外）、2020年国勢調査（SSDSE-A-2025）。投票率は有権者・投票者から再計算（公式表と一致）。密度は2020年人口÷2023年面積（時点差あり）。北海道15件は抽出標本。<a href="data/pref104.csv">pref104.csv</a></p>
+<p class="src">出典（比例代表 投票結果・国内＋在外）：<a href="https://www.pref.hokkaido.lg.jp/hs/senkyokankeidate/230089.html">北海道選管（2025年 ZIP原表）</a>、<a href="https://www.pref.aomori.lg.jp/soshiki/senkan/sangiin_r07_00.html">青森県選管</a>、<a href="https://www.pref.wakayama.lg.jp/prefg/010600/wsenkan/R7_san.html">和歌山県選管</a>、<a href="https://www.pref.yamaguchi.lg.jp/site/senkyo/310548.html">山口県選管</a>。2020年国勢調査（SSDSE-A-2025）。投票率は有権者・投票者から再計算（公式表と一致）。密度は2020年人口÷2023年面積（時点差あり）。北海道15件は抽出標本。<a href="data/pref104.csv">pref104.csv</a></p>
 
 <h2>2. 全国47都道府県：人口密度と投票率</h2>
 <div class="card">
 <p class="big">全国では、人口密度と投票率の関係はほぼ見られない（r≈+0.07）</p>
-<p class="sub">人口が少ない県でも多い県でも、2025年の投票率は、最も低い県で50.5%、最も高い県で62.5%の範囲にあります。</p>
+<p class="sub">相関が0に近いことは、関係が一切ないという意味ではありません。人口密度の高い県でも低い県でも、2025年の投票率は、最も低い県で50.5%、最も高い県で62.5%の範囲にあります。</p>
 </div>
 <div class="wrap"><svg id="natScatter" class="chart" viewBox="0 0 640 380" role="img" aria-label="47都道府県の人口密度と投票率の散布図"></svg></div>
 <div id="natInfo" class="info" aria-live="polite">点をタップ（クリック）するか、Tabキーで選ぶと、都道府県名と投票率を表示します。</div>
@@ -82,10 +82,11 @@ circle.pt:focus{stroke:var(--fg);stroke-width:2}
 
 <h2>3. 道北6自治体：離島と本土側の差は、2022年から2025年にどう変わったか</h2>
 <p>探索的に選んだ6自治体です。全国や道北の代表ではありません。因果関係は示していません。</p>
+<p class="big">離島3町と本土側3の差は、2022年の17.9ポイントから2025年の13.6ポイントに縮まりました。</p>
 <div class="wrap"><svg id="north6Bars" class="chart" viewBox="0 0 640 320" role="img" aria-label="離島3町と本土側3自治体の2022年と2025年の投票率（平均）"></svg></div>
 <div id="north6Info" class="info" aria-live="polite">自治体ごとの値は下の表で確認できます。</div>
 <details><summary>自治体ごとの値</summary><div id="north6Table" class="tablewrap"></div></details>
-<p class="src">出典：北海道選挙管理委員会 公式の比例代表投票結果ZIP（2022年・2025年）。投票率は有権者・投票者から再計算。<a href="data/north6_2022_2025.csv">north6_2022_2025.csv</a></p>
+<p class="src">出典：<a href="https://www.pref.hokkaido.lg.jp/hs/senkyokankeidate/121397.html">北海道選管 2022年参院選（公式ページ）</a>（<a href="https://www.pref.hokkaido.lg.jp/fs/6/4/1/5/1/5/6/_/R4%E5%8F%82%E8%AD%B0%E6%AF%94%E4%BE%8B%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C.zip">2022年 比例 ZIP原表</a>）、<a href="https://www.pref.hokkaido.lg.jp/hs/senkyokankeidate/230089.html">2025年参院選（公式ページ）</a>（<a href="https://www.pref.hokkaido.lg.jp/fs/1/1/9/8/0/0/5/0/_/R7%E5%8F%82%E8%AD%B0%E6%AF%94%E4%BE%8B%E4%BB%A3%E8%A1%A8%E6%8A%95%E7%A5%A8%E7%B5%90%E6%9E%9C.zip">2025年 比例 ZIP原表</a>）。投票率は有権者・投票者から再計算。<a href="data/north6_2022_2025.csv">north6_2022_2025.csv</a></p>
 
 <h2>4. 長崎21市町：A・B・C群の比較 <span class="prov">PROVISIONAL</span></h2>
 <div class="note"><b>PROVISIONAL（暫定）</b>：算術検算と公式PDFテキストの照合は完了しましたが、原表の画像による行対応の確認は未完了です。確定値として扱わず、他の数値と合算していません。</div>
@@ -95,10 +96,11 @@ circle.pt:focus{stroke:var(--fg);stroke-width:2}
 <b>C 本土側11市町</b>（諫早・大村・島原・雲仙・南島原・東彼杵・川棚・波佐見・佐々・長与・時津）</p>
 <p class="sub">人口構成が異なるため、A と C の比較を主に見てください。B は参考です。</p>
 </div>
+<p class="big">島しょ5市町（A）と本土側11市町（C）の差は、2022年の14.6ポイントから2025年の9.8ポイントに縮まりました。<span class="prov">PROVISIONAL</span></p>
 <div class="wrap"><svg id="ngBars" class="chart" viewBox="0 0 640 300" role="img" aria-label="長崎A・B・C群の2022年と2025年の投票率（単純平均）、PROVISIONAL"></svg></div>
 <div id="ngInfo" class="info" aria-live="polite">棒の上にカーソルを置くか、下の表で値を確認できます。</div>
 <details><summary>21市町の値（PROVISIONAL）</summary><div id="ngTable" class="tablewrap"></div></details>
-<p class="src">出典：長崎県選挙管理委員会 2022年比例（1681715838.pdf）、2025年比例（1754025176.pdf）、2025年開票区別投票総数（1754025192.pdf）。長崎市の有権者は市選管HTMLで照合。<a href="data/nagasaki21_provisional.csv">nagasaki21_provisional.csv</a></p>
+<p class="src">出典：長崎県選挙管理委員会 <a href="https://www.pref.nagasaki.jp/uploads/2023/04/1681715838.pdf">2022年 比例PDF</a>、<a href="https://www.pref.nagasaki.jp/uploads/2025/08/1754025176.pdf">2025年 比例PDF</a>、<a href="https://www.pref.nagasaki.jp/uploads/2025/08/1754025192.pdf">2025年 開票区別投票総数PDF</a>、長崎市選管HTML（有権者331,632人）。<a href="data/nagasaki21_provisional.csv">nagasaki21_provisional.csv</a></p>
 
 <h2>読み方と限界</h2>
 <ul>
@@ -141,7 +143,7 @@ function scatter(svgId, infoId, pts, opts){
     var c=p.color||'#2d6cdf';
     s+='<circle class="pt" data-i="'+i+'" cx="'+X+'" cy="'+Y+'" r="6" fill="'+c+'" fill-opacity=".8" tabindex="0" role="button" aria-label="'+p.label.replace(/"/g,'')+'" data-x="'+X+'" data-y="'+Y+'"/>';
   });
-  (opts.labels||[]).forEach(function(i){var p=pts[i]; var X=sx(Math.log10(p.x)), Y=sy(p.y); s+='<text x="'+(X+8).toFixed(1)+'" y="'+(Y-6).toFixed(1)+'" font-size="13" fill="currentColor">'+p.short+'</text>';});
+  (opts.labels||[]).forEach(function(i){var p=pts[i]; var X=sx(Math.log10(p.x)), Y=sy(p.y); var left=X>W-160; s+='<text x="'+(left?(X-9):(X+9)).toFixed(1)+'" y="'+(Y-6).toFixed(1)+'" font-size="13" text-anchor="'+(left?'end':'start')+'" fill="currentColor">'+p.short+'</text>';});
   var el=document.getElementById(svgId); el.innerHTML=s;
   function show(i){var p=pts[i]; info.innerHTML='<b>'+p.label+'</b>';}
   el.querySelectorAll('circle.pt').forEach(function(c){
@@ -154,17 +156,19 @@ function scatter(svgId, infoId, pts, opts){
 }
 function horizontalBars(svgId, groups, title){
   // groups: [{label, v22, v25, color}] values in percent, 0-based bars
-  var W=640,rowH=64,L=170,R=70,T=34;
+  // group names sit above each pair of bars (never clipped on the left); scale 0-90%
+  var W=640,rowH=86,L=14,R=90,T=34;
   var H=T+groups.length*rowH+30;
-  var sx=function(v){return L+v/80*(W-L-R);};
+  var sx=function(v){return L+v/90*(W-L-R);};
   var s='<text x="'+L+'" y="20" font-size="13" fill="currentColor">'+title+'（％）</text>';
-  for(var g=0;g<=80;g+=20){s+='<line x1="'+sx(g).toFixed(1)+'" x2="'+sx(g).toFixed(1)+'" y1="'+T+'" y2="'+(H-24)+'" stroke="currentColor" opacity=".15"/><text x="'+sx(g).toFixed(1)+'" y="'+(H-8)+'" font-size="12" text-anchor="middle" fill="currentColor">'+g+'</text>';}
+  for(var g=0;g<=90;g+=10){s+='<line x1="'+sx(g).toFixed(1)+'" x2="'+sx(g).toFixed(1)+'" y1="'+T+'" y2="'+(H-24)+'" stroke="currentColor" opacity=".12"/>';}
+  for(var h=0;h<=90;h+=30){s+='<text x="'+sx(h).toFixed(1)+'" y="'+(H-8)+'" font-size="12" text-anchor="'+(h===0?'start':'middle')+'" fill="currentColor">'+h+'%</text>';}
   groups.forEach(function(gr,i){var y=T+i*rowH;
-    s+='<text x="'+(L-10)+'" y="'+(y+26)+'" font-size="14" text-anchor="end" fill="currentColor">'+gr.label+'</text>';
-    s+='<rect x="'+L+'" y="'+(y+4)+'" width="'+(sx(gr.v22)-L).toFixed(1)+'" height="16" fill="#9aa5b8"><title>2022年 '+gr.v22.toFixed(2)+'%</title></rect>';
-    s+='<text x="'+(sx(gr.v22)+4).toFixed(1)+'" y="'+(y+17)+'" font-size="12" fill="currentColor">2022年 '+gr.v22.toFixed(1)+'%</text>';
-    s+='<rect x="'+L+'" y="'+(y+26)+'" width="'+(sx(gr.v25)-L).toFixed(1)+'" height="16" fill="'+gr.color+'"><title>2025年 '+gr.v25.toFixed(2)+'%</title></rect>';
-    s+='<text x="'+(sx(gr.v25)+4).toFixed(1)+'" y="'+(y+39)+'" font-size="12" fill="currentColor">2025年 '+gr.v25.toFixed(1)+'%</text>';});
+    s+='<text x="'+L+'" y="'+(y+14)+'" font-size="14" font-weight="600" fill="currentColor">'+gr.label+'</text>';
+    s+='<rect x="'+L+'" y="'+(y+24)+'" width="'+(sx(gr.v22)-L).toFixed(1)+'" height="14" fill="#9aa5b8"><title>2022年 '+gr.v22.toFixed(2)+'%</title></rect>';
+    s+='<text x="'+(sx(gr.v22)+4).toFixed(1)+'" y="'+(y+35)+'" font-size="12" fill="currentColor">2022年 '+gr.v22.toFixed(1)+'%</text>';
+    s+='<rect x="'+L+'" y="'+(y+42)+'" width="'+(sx(gr.v25)-L).toFixed(1)+'" height="14" fill="'+gr.color+'"><title>2025年 '+gr.v25.toFixed(2)+'%</title></rect>';
+    s+='<text x="'+(sx(gr.v25)+4).toFixed(1)+'" y="'+(y+53)+'" font-size="12" fill="currentColor">2025年 '+gr.v25.toFixed(1)+'%</text>';});
   var el=document.getElementById(svgId); el.setAttribute('viewBox','0 0 '+W+' '+H); el.innerHTML=s;
 }
 Promise.all([load('pref104.csv'),load('national47.csv'),load('north6_2022_2025.csv'),load('nagasaki_ABC_comparison.csv'),load('nagasaki21_provisional.csv')]).then(function(d){
