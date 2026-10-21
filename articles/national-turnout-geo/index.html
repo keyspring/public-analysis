@@ -46,16 +46,16 @@ select,button{font:inherit;padding:4px 8px}
 <p class="stat">並び順: <select id="natSort"><option value="t25">2025年投票率の高い順</option><option value="name">都道府県名順</option><option value="chg">2022→2025の変化</option></select></p>
 <div class="tablewrap"><svg id="natBars" class="chart" viewBox="0 0 640 1100" role="img" aria-label="全国47都道府県の投票率"></svg></div>
 <h3>人口密度・高齢化率と投票率（県単位の散布図）</h3>
-<p><label><input type="radio" name="xv" value="dens" checked> 人口密度（log）</label> <label><input type="radio" name="xv" value="aging"> 高齢化率（65歳以上）</label></p>
+<p><label><input type="radio" name="xv" value="dens" checked> 人口密度（log）</label> <label><input type="radio" name="xv" value="aging"> 65歳以上割合（2020年国勢調査）</label></p>
 <div class="tablewrap"><svg id="natScatter" class="chart" viewBox="0 0 640 420" role="img" aria-label="県単位の散布図"></svg></div>
 <p id="natStat" class="stat"></p>
-<p class="src">出典: <a href="https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html">総務省 参議院議員通常選挙 結果（公式投票率）</a>、<a href="https://www.ipss.go.jp/syoushika/tohkei/Mainmenu.asp">国立社会保障・人口問題研究所 人口統計資料集（高齢化率・DID割合）</a>。人口密度は二次資料（大分県作成、国勢調査・国土地理院面積）。ダウンロード: <a href="data/national47.csv">national47.csv</a>。検算: 公式の有権者・投票者数から再計算。限界: 県単位の47件、因果ではない。</p>
+<p class="src">出典: <a href="https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html">総務省 参議院議員通常選挙 結果（公式投票率）</a>、<a href="https://www.ipss.go.jp/syoushika/tohkei/Popular/Popular2022.asp">国立社会保障・人口問題研究所 人口統計資料集（2022年版）</a>（2020年国勢調査人口・65歳以上割合・DID人口）。人口密度は2020年国勢調査人口÷国土地理院面積（令和2年10月1日、北海道は国勢調査基準面積）で再計算。ダウンロード: <a href="data/national47.csv">national47.csv</a>。検算: 公式投票率は有権者・投票者から再計算し一致。密度は旧値（二次資料の四捨五入値）との差は最大0.6（丸め）。限界: 県単位の47件、因果ではない。</p>
 
 <h2>② 4道県104自治体（探索的）</h2>
 <p><select id="prefSel"><option value="all">全4道県（104自治体）</option><option value="北海道">北海道（抽出15件）</option><option value="青森県">青森県（40件）</option><option value="和歌山県">和歌山県（30件）</option><option value="山口県">山口県（19件）</option></select></p>
 <div class="tablewrap"><svg id="pref104" class="chart" viewBox="0 0 640 420" role="img" aria-label="自治体の人口密度と投票率"></svg></div>
 <p id="pref104Stat" class="stat"></p>
-<p class="src">出典: 県選管の比例代表投票結果（国内＋在外）。検算: 有権者＝投票者＋棄権を全件確認し、青森・和歌山・山口は公式県計と一致。北海道15件は抽出標本のため北海道全体の代表ではなく、公式ZIPの原表と照合済み。限界: 県間の差と県内の差が混在するため、県内で絞った結果も併せて見てください。</p>
+<p class="src">出典（県選管・比例代表 投票結果、国内＋在外）: <a href="https://www.pref.hokkaido.lg.jp/hs/senkyokankeidate/230089.html">北海道（ZIP原表）</a>、<a href="https://www.pref.aomori.lg.jp/soshiki/senkan/sangiin_r07_00.html">青森県</a>、<a href="https://www.pref.wakayama.lg.jp/prefg/010600/wsenkan/R7_san.html">和歌山県</a>、<a href="https://www.pref.yamaguchi.lg.jp/site/senkyo/310548.html">山口県</a>。ダウンロード: <a href="data/pref104.csv">pref104.csv</a>。人口・高齢化率・DIDは2020年国勢調査（SSDSE-A-2025、KSJ DID 2020）、密度は2020年人口÷2023年面積（時点差あり）。検算: 有権者＝投票者＋棄権を全件確認し、青森・和歌山・山口は公式県計と一致。北海道15件は抽出標本のため北海道全体の代表ではなく、公式ZIPの原表と照合済み。限界: 県間の差と県内の差が混在するため、県内で絞った結果も併せて見てください。</p>
 
 <h2>③ 道北6自治体の2022・2025年比較（探索的）</h2>
 <p>群は探索的に選んだものです。離島群（礼文・利尻・利尻富士）と本土側（稚内・幌延・豊富）。因果効果は推定しません。</p>
@@ -123,7 +123,7 @@ function bars(id,rows){
   H+=40; var el=document.getElementById(id); el.setAttribute('viewBox','0 0 '+W+' '+H); el.innerHTML=s;
 }
 Promise.all([load('national47.csv'),load('pref104.csv'),load('north6_2022_2025.csv'),load('nagasaki_ABC_groups.csv'),load('nagasaki_ABC_comparison.csv')]).then(function(d){
-  var nat=d[0].map(function(r){return {prefecture:r.prefecture,t22:num(r.turnout_2022_official),t25:num(r.turnout_2025_official),dens:num(r.density_per_km2_secondary),aging:num(r.aging65_pct_ipss)};});
+  var nat=d[0].map(function(r){return {prefecture:r.prefecture,t22:num(r.turnout_2022_official),t25:num(r.turnout_2025_official),dens:num(r.density_2020_per_km2),aging:num(r.aging65_pct_2020_census)};});
   function drawNat(){
     var sort=document.getElementById('natSort').value, rows=nat.slice();
     if(sort==='t25') rows.sort(function(a,b){return b.t25-a.t25;});
@@ -135,7 +135,7 @@ Promise.all([load('national47.csv'),load('pref104.csv'),load('north6_2022_2025.c
   function drawNatScatter(){
     var xv=document.querySelector('input[name=xv]:checked').value;
     var pts=nat.filter(function(r){return r.dens&&r.aging&&r.t25;}).map(function(r){var x=xv==='dens'?r.dens:r.aging;return {x:x,y:r.t25,label:r.prefecture+' '+r.t25.toFixed(2)+'%'};});
-    scatter('natScatter',pts,xv==='dens'?'人口密度（人/km²、2020年人口÷2023年面積、log表示）':'高齢化率（65歳以上、IPSS 2022年推計、%）','投票率（2025年参院選比例、%）',xv==='dens');
+    scatter('natScatter',pts,xv==='dens'?'人口密度（人/km²、2020年国勢調査人口÷国土地理院面積、log表示）':'65歳以上割合（%、2020年国勢調査）','投票率（2025年参院選比例、%）',xv==='dens');
     var r=pearson(pts.map(function(p){return xv==='dens'?Math.log10(p.x):p.x;}),pts.map(function(p){return p.y;}));
     document.getElementById('natStat').textContent='県単位 n='+pts.length+'、相関 r='+fmt(r,2)+'（探索的。因果ではない）';
   }
@@ -145,7 +145,7 @@ Promise.all([load('national47.csv'),load('pref104.csv'),load('north6_2022_2025.c
   function drawP(){
     var sel=document.getElementById('prefSel').value;
     var rows=sel==='all'?p104:p104.filter(function(r){return r.pref===sel;});
-    scatter('pref104',rows.map(function(r){return {x:r.dens,y:r.t,label:r.name+' '+r.t.toFixed(2)+'%'};}),'人口密度（2020年人口÷2020年国勢調査の市町村面積、人/km²、log表示）','投票率（2025年参院選比例、%）',true);
+    scatter('pref104',rows.map(function(r){return {x:r.dens,y:r.t,label:r.name+' '+r.t.toFixed(2)+'%'};}),'人口密度（人/km²、2020年人口÷2023年面積（SSDSE-A-2025）、時点差あり、log表示）','投票率（2025年参院選比例、%）',true);
     var r=pearson(rows.map(function(r){return Math.log10(r.dens);}),rows.map(function(r){return r.t;}));
     document.getElementById('pref104Stat').textContent=(sel==='all'?'4道県104自治体（県間の差を含む）':sel)+' n='+rows.length+'、相関 r='+fmt(r,2)+'（探索的）';
   }
