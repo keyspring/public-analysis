@@ -44,7 +44,7 @@ circle.pt:focus{stroke:var(--fg);stroke-width:2}
 <div class="card">
 <p class="big">全国47都道府県：人口密度と投票率は、ほぼ無関係（r≈+0.07）</p>
 <p class="big">4道県104自治体：人口密度が低い自治体ほど、投票率が高い傾向（r≈−0.32）</p>
-<p class="sub">r は相関係数です。+1 に近いほど同じ方向に、−1 に近いほど逆方向に動く傾向を示します。0 は関係がないことを意味します。数値は補助情報で、因果関係は示していません。</p>
+<p class="sub">r は相関係数です。+1 に近いほど同じ方向に、−1 に近いほど逆方向に動く傾向を示します。0 に近いほど、直線的な関係が弱いことを示します（関係が一切ないと断定するものではありません）。数値は補助情報で、因果関係は示していません。</p>
 <p class="sub"><b>分析単位が違います。</b>全国は「都道府県」、4道県は「市町村」を1点として見ています。4道県は全国の代表ではなく、北海道は抽出された15市町村だけを含みます。</p>
 </div>
 
@@ -78,7 +78,7 @@ circle.pt:focus{stroke:var(--fg);stroke-width:2}
 <details><summary>都道府県の完全ランキング（投票率の高い順）</summary>
 <div id="natTable" class="tablewrap"></div>
 </details>
-<p class="src">出典：総務省（公式投票率、2022年・2025年）、2020年国勢調査人口÷国土地理院面積（令和2年10月1日）で再計算。65歳以上割合は2020年国勢調査（IPSS 人口統計資料集2022年版）。<a href="data/national47.csv">national47.csv</a>。人口は千人単位の値を含むため、厳密な整数ではない。</p>
+<p class="src">出典：<a href="https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html">総務省 参議院議員通常選挙 結果（2025年）</a>、<a href="https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin24/index.html">総務省 参議院議員通常選挙 結果（2022年）</a>。2020年国勢調査人口÷国土地理院面積（令和2年10月1日）で再計算。65歳以上割合は2020年国勢調査（<a href="https://www.ipss.go.jp/syoushika/tohkei/Popular/Popular2022.asp">IPSS 人口統計資料集2022年版</a>）。<a href="data/national47.csv">national47.csv</a>。人口は千人単位の値を含むため、厳密な整数ではない。</p>
 
 <h2>3. 道北6自治体：離島と本土側の差は、2022年から2025年にどう変わったか</h2>
 <p>探索的に選んだ6自治体です。全国や道北の代表ではありません。因果関係は示していません。</p>
