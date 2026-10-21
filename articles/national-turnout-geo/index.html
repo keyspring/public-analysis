@@ -49,7 +49,7 @@ select,button{font:inherit;padding:4px 8px}
 <p><label><input type="radio" name="xv" value="dens" checked> 人口密度（log）</label> <label><input type="radio" name="xv" value="aging"> 65歳以上割合（2020年国勢調査）</label></p>
 <div class="tablewrap"><svg id="natScatter" class="chart" viewBox="0 0 640 420" role="img" aria-label="県単位の散布図"></svg></div>
 <p id="natStat" class="stat"></p>
-<details><summary>47都道府県のデータ表（グラフの代替・キーボード操作可）</summary><div id="natTable" class="tablewrap"></div><p class="src">IPSSの人口は千人単位の値を含むため、厳密な整数人口ではない（再計算値の丸め）。</p></details>
+<details><summary>47都道府県のデータ表（グラフの代替・キーボード操作可）</summary><div id="natTable" class="tablewrap"></div><p class="src">IPSSの人口は千人単位の値を含むため、厳密な整数人口ではない（再計算値の丸め）。並び順はグラフと表で同じ。</p></details>
 <p class="src">出典: <a href="https://www.soumu.go.jp/senkyo/senkyo_s/data/sangiin27/index.html">総務省 参議院議員通常選挙 結果（公式投票率）</a>、<a href="https://www.ipss.go.jp/syoushika/tohkei/Popular/Popular2022.asp">国立社会保障・人口問題研究所 人口統計資料集（2022年版）</a>（2020年国勢調査人口・65歳以上割合・DID人口）。人口密度は2020年国勢調査人口÷国土地理院面積（令和2年10月1日、北海道は国勢調査基準面積）で再計算。ダウンロード: <a href="data/national47.csv">national47.csv</a>。検算: 公式投票率は有権者・投票者から再計算し一致。密度は旧値（二次資料の四捨五入値）との差は最大0.6（丸め）。限界: 県単位の47件、因果ではない。</p>
 
 <h2>② 4道県104自治体（探索的）</h2>
@@ -132,17 +132,17 @@ Promise.all([load('national47.csv'),load('pref104.csv'),load('north6_2022_2025.c
     else if(sort==='chg') rows.sort(function(a,b){return (b.t25-b.t22)-(a.t25-a.t22);});
     else rows.sort(function(a,b){return a.prefecture.localeCompare(b.prefecture,'ja');});
     bars('natBars',rows);
+    var tb='<table><tr><th>都道府県</th><th>2022 (%)</th><th>2025 (%)</th><th>変化 (pt)</th><th>密度 (人/km²)</th><th>65歳以上 (%)</th></tr>';
+    rows.forEach(function(q){tb+='<tr><td>'+q.prefecture+'</td><td>'+q.t22.toFixed(2)+'</td><td>'+q.t25.toFixed(2)+'</td><td>'+(q.t25-q.t22).toFixed(2)+'</td><td>'+(q.dens===null?'—':q.dens.toFixed(1))+'</td><td>'+(q.aging===null?'—':q.aging.toFixed(1))+'</td></tr>';});
+    document.getElementById('natTable').innerHTML=tb+'</table>';
   }
   drawNat(); document.getElementById('natSort').addEventListener('change',drawNat);
   function drawNatScatter(){
     var xv=document.querySelector('input[name=xv]:checked').value;
     var pts=nat.filter(function(r){return r.dens&&r.aging&&r.t25;}).map(function(r){var x=xv==='dens'?r.dens:r.aging;return {x:x,y:r.t25,label:r.prefecture+' '+r.t25.toFixed(2)+'%'};});
-    scatter('natScatter',pts,xv==='dens'?'人口密度（人/km²、2020年国勢調査人口÷国土地理院面積、log表示）':'65歳以上割合（%、2020年国勢調査）','投票率（2025年参院選比例、%）',xv==='dens');
+    scatter('natScatter',pts,xv==='dens'?'人口密度（log）':'65歳以上（%）','投票率（2025年参院選比例、%）',xv==='dens');
     var r=pearson(pts.map(function(p){return xv==='dens'?Math.log10(p.x):p.x;}),pts.map(function(p){return p.y;}));
     document.getElementById('natStat').textContent='県単位 n='+pts.length+'、相関 r='+fmt(r,2)+'（探索的。因果ではない）';
-    var tb='<table><tr><th>都道府県</th><th>2022 (%)</th><th>2025 (%)</th><th>変化 (pt)</th><th>密度 (人/km²)</th><th>65歳以上 (%)</th></tr>';
-    nat.forEach(function(q){tb+='<tr><td>'+q.prefecture+'</td><td>'+q.t22.toFixed(2)+'</td><td>'+q.t25.toFixed(2)+'</td><td>'+(q.t25-q.t22).toFixed(2)+'</td><td>'+(q.dens===null?'—':q.dens.toFixed(1))+'</td><td>'+(q.aging===null?'—':q.aging.toFixed(1))+'</td></tr>';});
-    document.getElementById('natTable').innerHTML=tb+'</table>';
   }
   document.querySelectorAll('input[name=xv]').forEach(function(e){e.addEventListener('change',drawNatScatter);});
   drawNatScatter();
@@ -150,7 +150,7 @@ Promise.all([load('national47.csv'),load('pref104.csv'),load('north6_2022_2025.c
   function drawP(){
     var sel=document.getElementById('prefSel').value;
     var rows=sel==='all'?p104:p104.filter(function(r){return r.pref===sel;});
-    scatter('pref104',rows.map(function(r){return {x:r.dens,y:r.t,label:r.name+' '+r.t.toFixed(2)+'%'};}),'人口密度（人/km²、2020年人口÷2023年面積（SSDSE-A-2025）、時点差あり、log表示）','投票率（2025年参院選比例、%）',true);
+    scatter('pref104',rows.map(function(r){return {x:r.dens,y:r.t,label:r.name+' '+r.t.toFixed(2)+'%'};}),'人口密度（log）','投票率（2025年参院選比例、%）',true);
     var r=pearson(rows.map(function(r){return Math.log10(r.dens);}),rows.map(function(r){return r.t;}));
     document.getElementById('pref104Stat').textContent=(sel==='all'?'4道県104自治体（県間の差を含む）':sel)+' n='+rows.length+'、相関 r='+fmt(r,2)+'（探索的）';
     var pt='<table><tr><th>道県</th><th>自治体</th><th>2025 投票率 (%)</th><th>密度 (人/km²)</th></tr>';
